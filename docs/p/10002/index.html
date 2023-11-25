@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='//问题出在时间上，计算N次方调用头文件省时间 //使用函数形式为pow(a,b) #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;math.h&amp;gt; double f( int n, double a[], double x ) { int i,m; double product,sum=0; for(m=0;m&amp;lt;=n;m&#43;&#43;) { double product=a[m]*pow(x,m); sum&#43;=product; } return sum; } double f( int n, double'>
+<title>10002</title>
+
+<link rel='canonical' href='https://96bear.github.io/p/10002/'>
+
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='10002'>
+<meta property='og:description' content='//问题出在时间上，计算N次方调用头文件省时间 //使用函数形式为pow(a,b) #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;math.h&amp;gt; double f( int n, double a[], double x ) { int i,m; double product,sum=0; for(m=0;m&amp;lt;=n;m&#43;&#43;) { double product=a[m]*pow(x,m); sum&#43;=product; } return sum; } double f( int n, double'>
+<meta property='og:url' content='https://96bear.github.io/p/10002/'>
+<meta property='og:site_name' content='Bear'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2019-08-30T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2019-08-30T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="10002">
+<meta name="twitter:description" content="//问题出在时间上，计算N次方调用头文件省时间 //使用函数形式为pow(a,b) #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;math.h&amp;gt; double f( int n, double a[], double x ) { int i,m; double product,sum=0; for(m=0;m&amp;lt;=n;m&#43;&#43;) { double product=a[m]*pow(x,m); sum&#43;=product; } return sum; } double f( int n, double">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu0768a4c826fbae2b7bd33d97bde38f23_35393_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Bear</a></h1>
+            <h2 class="site-description">现在是过去最好的结果！</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/96bear/96bear.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/cpp/" >
+                cpp
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/10002/">10002</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 30, 2019</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABEIAAABKCAYAAAC/3vEHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAB/jSURBVHhe7Z3bz25XVcb9V7zwggtjjDGGBKNEkyaNNRpDUlJCQwm1LWlpbEk0GiRN1RAEETSaphikYKGC4qlpbUFoK6igKbZcUGhBbLsP/brbvbu727vX/bx&#43;z8fYY48551in913rW8/FL3t/6zDXmOM453hPP/Laa69thBBCCCGEEEIIIdaAGiFCCCGEEEIIIYRYDWqECCGEEEIIIYQQYjWoESKEEEIIIYQQQojVoEaIEEIIIYQQQgghVoMaIUIIIYQQQgghhFgNaoQIIYQQQgghhBBiNagRIoQQQgghhBBCiNWgRogQQgghhBBCCCFWgxohQgghhBBCCCGEWA1qhAghhBBCCCGEEGI1qBEihBBCCCGEEEKI1aBGiBBCCCGEEEIIIVaDGiFCCCGEEEIIIYRYDWqECCGEEEIIIYQQYjWoESKEEEIIIYQQQojVoEaIEEIIIYQQQgghVoMaIUIIIYQQQgghhFgNaoQIIYQQQgghhBBiNagRIoQQQgghhBBCiNWgRogQQgghhBBCCCFWgxohQgghhBBCCCGEWA1qhAghhBBCCCGEEGI1qBEihBBCCCGEEEKI1aBGiBBCCCGEEEKInfP5v/nC5g0//pObJ7/1rfC8EFOhRogQQgghhBBCiJ3zR3/8sc1b33bt5uDgxfC8EFOhRogQQsyECxcubM6ePbs5c&#43;ZMb1555ZVwbLEbXn311c1LL70U2mbuQG7IH81rn7z&#43;&#43;uubc&#43;fOhTIvAciOOURzE8vgq1/7t823n3oqPNcVjLWkV77xav21171rVK6/8d2L2PSOaXfU5jf/4hWbH/2xN2x56OEvhtdFwAa87yd&#43;6mdW0TBYQpxozbZ8Jm&#43;E/Pt/fL1zwAsh5s0z3/ve5qff&#43;LOb33nf&#43;8PzgLF/9198IjwvLgXF9Lnnnts8&#43;&#43;yzgzl9&#43;vS2QEfPEdOAje6pU6dCeywNzGMuG3csEiMZl4gWvMvkIx/9k80dv/cH4bk&#43;wA9uuOnmxayLWcvB2669bvP008&#43;k&#43;M53vrt55NHHNp&#43;973Pb&#43;XIMMvf5T2H3K6/61UFNjDHGWApTxskY61Ot2Y4Hs2yE2KTrQScUDnPze34jPO/ZZ6LlZpGBhr/f&#43;KafH9ThhG7W0g320C9QiM&#43;eOxdesw/Qqa/ZBHLv47OPeG6tUWHJNDYIXjFG/NXmxGvG9lW&#43;KtI1rseyEQrzFVdeddl1Q&#43;eLcVkM8f/omiwvv/zytjhjrOj8PsHbX21&#43;trT0P3cbsgkC/UfnlwLkxzwwn&#43;j8LoFNKMv58&#43;fDa5YA5kH/wP&#43;jawB8E68Y13ywbw60sJbuoy71hTJz3sgl2frmQb171w3v3o6Ht&#43;O38s4Ua44x1oO7hH4HhmweH/vXr27XGhgnsh&#43;aDziHBgRihX/DV&#43;/59L2XXT8VU9gd8Z1pYtRqUXaMpUB/KMXhVHGC/DEk/8EOc1mzDakJU9Uc3FPSL/17Lnu52TZCIgXieGSsllJpaMgxlC6LZG4uWTR&#43;8IP/3dz7mfu24/QtJLgfY2YD2BYvD/RFeVp0mfcUeBt2DfjaBqxG9Bz4oS3g0LHVjz&#43;PZ&#43;9Df5xzxte6NEJausRcP/HJe8JzFspVGs/r3vpAS86pbPT97//P0QLayjc0saMAnjx5MjzXB25mhxboLNkcm/EvsiQb4l7oGx&#43;BiM4vDfoP5hWd3xVoHpw4cSI8t0Sef/75aoMJPlyr7YyzLnHkQdx0jcUW2fi3dF0DUW7ELPwSb5tHzcrEvMXWOq6PSrrgtdE6YAx8TpszzI/Q15ANJOBYfu7QNxogsDWe8c7rb9x86V&#43;&#43;vD23S11NZXfESaaJQV&#43;P9JwdYwlAz/iIFOoN/KGUE8a2PfPVkI34nNZszGN9/HWKmsP4Lum3dX7XHItGCA3VtbCWjAHHGMNATKZerpJObKEZSiR/tFHIJJg5FGvIjnnd/8CDW1tPJQ99qaRDwGYUE4PVD23Lz7/SpmMuOrtAvbXij77aktOOV7qHOvCNjlJ84rzVdcnfcB2OY2HUmtPUNvJzGprY8WrAiy&#43;O5894iyWKKj5/Gp3fJdRV15hdkg25iInOLRXMB/OKzu0KyDBmXOybg4ODy/yEfgdfjLBxQ78v0fLd1v0eG0&#43;Iv&#43;gaEOV2PqvL2q9GNN6QuH/gwYeO9B7J32fsrvRdu&#43;4L1nzorGs&#43;91C/1p7wMaz7I1vj2NBnZpjS7rB3polBPUcfy8mOsQRob8y39q6PvnFi/XUMrE/Mac1Wy80exNTUNYd6x7OYb7tiY39qBjVCWgrqgm181MaNEqFVuj3egs7gDQnD9d3QWChXNnjHSMClOQHMy&#43;vPbi7wd6RLf82uYZBTj5Rx7EJlk0nLl2xRpn7QHUaytvd29YGxsQmvNqeMTjFP36BkgbL3YQPrC3htfBtvpRhgTuAcIl/2TG0jvGUXi2n8n3romzem2PDNYRPJIljyK9j71tveW1wALcWGB8EGd&#43;lgPphXdG5XzMGHxwRz8X5Sq9n0efg/r4vyeG0Mglis5XfCXMvn&#43;vOZZwE8r/ZKY1co15Bayhi3OkXuiK71NWcqMrVsTlAvtbyeBWNFfgSd&#43;ONZ/x3KlHaH/w1tYowxxtxAnsvkkzHihGuF1vNaTFGb&#43;o4J/XXx2alrjh3DHifZGrIrJn1HiE2YXQoi7mu9I4TOzPEjWgWzZIwoCXvs3MYAslIeJnvMsdQlhaNFOqo5WJRIvMNSr9bxW049JXg29OMLIPU/ZFFErC/1Ccyafih/iTHkb4H5tb7wizrILDToY9F8WkQ&#43;a&#43;Mt8r/I1pQh65dT24gL7L4LtTkV1TGgfWp538ZdRm9ztuHBmI2QV89vTt/&#43;65sTv/SmI87c9dH42iQv//U9l4x34lfevLlwUP88MuaDeUXndsWoPjwDvWIu3k9qNdv6fM3/a2N08WvGUa0O1p7V5RqA3O9jdQitOGfOackFxtp4tWB9m2LjPRXWbmPLTd&#43;xtqQP70JHU9p9jCbGGGPMiaxtx4oT5rhonC62n2J91XfM2pwipqw5PF6rN9n6sCsma4RwoviZLBgI/2YXmHD4bCMkMjwDK0qkkKUvXZMjZcwswktEm0AAB61tMiKiIPeOHum1FgxTgudi7iW/4fmafq2eovlbv/BzxnO9PmiPFngOPkMYJYSSf&#43;8TzjMTo32TmLWFPQ67cCxcY8elviO5KIe36RQ24rOicboS&#43;euciupQMr7E2C350NJseDBBI2ToJr3EdvO&#43;4kbIPvWKuXg/qeVTxAl8/Iknn6yuJUpjMM5s/arlUnttidazMrSeETHGeooy1nIT4Lqgdd0Y7PJZY2HXTWOvZaI1KPyWdR427OM/Gaa2BcbfVyMEOizVWw903HrxbCysbfH/km3HsA3HKOlBjZD/H2tIzYENvSyUL0PWR8dkskYIJo4J4RuBMTl8t0P0Tf0RVGQEndQnSz4PCqSzWwNGx0qGtBszHqNz&#43;ACpJSXKONSwUfBCnq4FaEmNEMgKe7cWPfSV0nXU038/8eT259y42PO&#43;wuTK&#43;eMafP8Ak0EpwVDOSD&#43;UzSfuPrabGs47U2RqSbRGad6MNxQAG6O4vmZbQhvs00YZ/dV8dU5FdQi0WYs&#43;uQv3zdWGB/tqhLxybnPyrVf&#43;8B0Jv/xzm1e&#43;&#43;V/xtYeoEbK8Rgi&#43;fLpWg6M1AmLG&#43;z9/ocH6OH06m89L8lLW2johWl9k6VKjLJxfiUgWPqtVewB0es3b37Edi798AR194IMf2h6DDWrzpT5bupsb1BHmmPWdDJEfwZdhd3zR9U03v2cyPXWxO8GX9vLLt2FrfNQSPhfVntp&#43;AfztF/5u&#43;3zcW/qFnNYYNaDblq1wDb6kts/4fWLB2vaWW28ryjZGnEQ50Z/Pjj/F&#43;qo2JnM89NgHmzdLORwMqTkcF8&#43;zds7UhppMUzNJI8QmARYhKCUThKCURHCcyvQF1Y5NA9lkFh0rKR7B4I&#43;VDMn5RfOijKXAw5jeYQBlLSUM/B/31gI6IgpyPy&#43;v1&#43;iaKeHco7lRX75IUebIBpGebAAj6eD/0CvHsQkj0ocdA/LwXU9WNns&#43;8q&#43;p9YlnUCYrA/21K1ESja5rEdmV8camKXRt84a9tkRku13aiL5Zk7c2p10X1SmgDoidp/UZH781lmLDg300Qg6bIAe/e/vRMX5U4&#43;wDf3/ptQY1QpbXCKEPw/9sjiOMg2gMD334z&#43;&#43;6&#43;yh2aj7vKcnrZY2uK9XTDJxjNP8MlCezbsrWH8wZ8/v2U08d/Y3xb7jp5m2O4jNbeQi5KiPX3GDOBH3t4oEu/FiwB/ym9VPHQ8nanXD&#43;d9398a2PYzOP77zCscjm8OFSEwNj4cU3jFPzh9oYGeizUZ7AGqxvE4Tjdo2FLrYdEifRGtHTZc0wxfqqNmbf/BfdV8rhAHazOoB9omdyXDsG48fHkB8zoibT1IzeCKGzcaFqEwsn2tWQEb6g2uCmgeyCOzpWUjyCwR&#43;rGZJz9PdQRpzzc7Z6sccJ7y05RTYhWMf0QCY/L69XkHHiMcBzIFdpzjxvbWiBTvx53FPTUyu5lPRh5aR&#43;&#43;GsmGAt65zGru10He/Z5nGcmNvvOoWQLxht/Qs37WmQDUIuhXdsoE481eWsFEBus0zdcc3GD9cIlr/7bDXDEFIW6D5y31yd0VoplsCQbHiQaIa9&#43;96nNiV/7hR&#43;&#43;e6PUsEhu2F/88J1bv3jN/rLL4b2XHTccp0ZIWqcgode&#43;sQZ20QiJahxo1TEL82k0ToaSvF7W6LpSLs/QZY4RvN/KWIK5pyYn5sKNK4/5XEd7tZ6J52XWcx7K2ZeMLlpwjqCPXedExu6E13p/LNU7AB&#43;Mmhj2OOOm5A&#43;lMboA2b18aIL09YcxY6FG3zhp6ZRAxqx81drEd2r6d2iWjh9SG7Nv/ovum6LmcEy&#43;YGVjiLGSIZJpakZthFAxdiJ&#43;4dgqhBmFwUj&#43;Iws2sCmHNRyPReNlqQUI5bbOxrnilRebuEqL6Qg4YRS8XQKWRPd4p49k89cwMMYCOivN00Id1xZv3gdxTzQubIMvon388W8eBTOu9UHo/TWS0&#43;rH&#43;56/P/LNKaklPAvltP5bgmN6O2Yo&#43;TLli&#43;TwOiSlONq1jbzP4fleJkD/jc7VCuB2g&#43;U2eee&#43;9kh903eR1iZyamq&#43;h3P4xRbow&#43;cksDQbHrQaIRcXQKdvv&#43;GS5sTWrtGCKNMIOVxQ&#43;WvoF7UN&#43;bFphHTRKUg2QvrEGsjoFXPxftLKpz4&#43;4Js4bn2Q/lvL3/Rdfy/zaJSbI0pxbeOzdJ2P09bcCcZgozzKJxn47Mz9Uf7xRDmCOmbe&#43;fo3/nP7CvtXHnn0kus8pbyyBOh7kD/K5UsiY3dAX4rmy3iKYhG6ipoYsD&#43;vb/lpaYyuoP7yGUOaIGDMWKjRN054H21rfTaLX0u01lds0tsXJfDiRe3jq7UxMzk&#43;IrpvipoDHcOf7Du7eS3OtfyrVFd2wWiNECrFTzbarJQ2MBFUjndCX1BhKBqEsth7omMA92UU3zIk5PQ/A0kZ8Uzcj385dy9HDToYZaROuiYuzNXf4&#43;eFv2sbEB7bB5Cjj&#43;7sfOgHGAfH//Gf7t/&#43;/Vu//b6jjZl9hvczi08EEd7vauNNQTa5UK5Mku2bsCLfAj4GvZ&#43;WdJbJI7uwEf0S11M3kVz2Onsc1AogN2eXbMQKG2FLq1BPCWwT2dpDG4JSXC/BhgeJd4RcRsmGiQ07F1nWJ7gRP/fQ/dXFVmbDDjAfzCs6tys6&#43;3AtLjo0QrrGGhjaCInyKfzN115eb4&#43;XYoTH4bN&#43;HHuuhperJK&#43;XlddZmVpxWdMFiNYwWRi7mRqH52Tyl4Wyd70PlPLKUrB5vGS7JZC1O64r&#43;RLPRbZEzLWaGLy/Vg/HaIQArHnfcvU1vWOqxJBYqNEnTuibeKdCSx7oPquLTG2yTXT&#43;v1ZHamOWcnyL6L5anu1bc/D9NtBttC6PxvS0cv&#43;UjNIIoUKiiUZKAVBMySk5Hu6hcnxSsAXVX8P7S4mEULb333Hn0efaxsIWBshBmfh3dE8WjtXVYaIg9w6auWZfQI6u&#43;qOf/fNDD2/9BffbuVCXNkmwENn7osRLeaJzFoxHW&#43;1al9nkwnjKJNm&#43;CYu28DFv9RNdV1o8l3KLZWobURf&#43;evqQfW5p/qBWAMMN1uHmrPaW/c6byBGgrTD3PkQ&#43;tQQbHuy5EWI/JtN6B4MaIWW99o01sKtGCGCc8R5fx3i&#43;lG/g27X4oExR3JXk9bLyOltTSrmc1HQBSvGXgfGcWT/g2q7P4dyyeceCeWVy3Jw5DnPI2N2u5UuxURoD99aaGBy75kOtMbpAm5XirS9DYqFGVx&#43;zeRHrxZZtW3nRkq1N23eBXKzHYMjHma3f9cHm4VqehY4jHbRqDonW5bRbhrF9McPgRkir4NY2KyxM/pwtljSYL172Gh90NBDv4XPGwhveYp2DclEOK7O/D9jmyRj450RBbp2euvb3lwJj1zCY&#43;jRC7rjz90MfLQUzbIWPzuBZ1maZgPbPoV3xy0nRs6aktbAk9M2MbN5PuhDZAH5p5fMFq5RDSsd3aaOST1odUT7MM5o/qBXApTRCvB0tGT/E/fjJPpxfmg0PEo2QrR0PF0SWQY2Qf/j8ZRv/bSNkJe8ISesUHKNGCM/RL0t1zAP/tf4cEfl9dN7L62X16zDQWgO18kQp57dozclTy9UlKFuf&#43;s4c1HVec4H67bI2awGddLVBCbxdH34HHeMdEPhOqei6jN3pw9F1PFfyX8RErYmR8aHWGFmgX3xBKcbB/2u1uStDYqFG1zix84JMLdvC/tm9Tnp9dVg/ajWZ1MbM5nhPdF8tz0JnQ2pOlKNrY5JW7p&#43;SQY0QTrjmXJFSLCzMvlhiE4oxbQEjXlEYA8mtlJw8NGBN4bwmGxTABxGTop0bHCIjY4lWoq0RBbl1UI4dfdnNHICs3ldatPQd2Sg6b3VBn4x8I9IxfQmyD7F9H7LJhfPMJFk7Jj&#43;3XbsPOsG1937mvnD&#43;PE/5/N8lG9Zyyy5s1IpFyHDbe3/z6Dl4bmnsWgHsuzlLF&#43;oJwFyjmKGu&#43;Hctlpdkw4NGI4Qb9tRHLhIb9qPFlR/zIq0NeWbDDjAfzCs6tyuacZHVKThmjRALfT/KwzYuGJM4Fv1UJa&#43;txY&#43;VF/PB9fg/8ruVNdp4RPXUUtMF4P1d1gCA88roEnCtUZITYHONtRK/8wC5Afd42TBWS95abahBOfuS1UcLyJ9ZO3QBY3KjHp3PQj9k8wM/d1vywYzd6YOR7rgmoS4wntUL/LDUxKDv2&#43;dHvlMbIwvG9brFsVLctRgzFmr0jRMQ5SMPxs/GRHZ9hXeEnLr&#43;6s3pW66rfok5yI45lClrTrQuz4zZyv1TMqgRgo&#43;T2ICkAjJYpUBJOEbF2WRC5ZSCB/da52YAlhIZx6sZJbMYsESGB6Wi3TeYOR6eRUrzjGCQnz59OtQB5brnU3912djUSZfnjQ39pEsi9f4B6COk5gvRwq2rvQFlH3ux0CJKLrClXwRT9q7ycfzafdB3LbnhPIqy/S1&#43;2quWHEt2qJ0by0aUKxvHrbzT3PAtpBHCeXo9ejviZwY/e9/ntteVfGNJNjyoNUION&#43;CXLYKGNEIuUvvVmJpfTNUI8fnZ/106VqPow111Co5xIySKiZp/M7ZsnPBY7XkcE9f5a62s/jrKRTmjnA1quqid5/qk5Fd8bmlcD3VRGo/P4zX2bzs3HL/iyqua&#43;YVrs5ad5wjsntXrrqG/&#43;HpQWpO07A5oa2&#43;vyAfwHO8PpSaG99HStbUxMsBepQZTH1vaeY8RCzWGxAls26r1XcbPrK&#43;2NeHwnSB8F2et/tTGhH/YX&#43;ahr1odR8doD3uslmeH1BwQyYAxcSxDSSaez6ztujLal6WWiJTSwk76gQcf2hrMK5vGjRwbzox7o2SGBfiXv/LI1oB8BqDyKW9mcUxHKBmm5CgAMmYX4IBy0UFtssmMQ50Qbw/qHLLWgmkKJ8xiZYzOR&#43;CeLnr20IZWF08//cyRLBybiSVKIDyH671eI7r6Rg2f8Ci3TzYtXwa8dywoA&#43;YbJT9AX4xsXsstu7BR5jrC&#43;CnNs1YAp2yEjOlr9KGafv38a3l8STY8aLwjxH9bPBdF4cc4ko0QjmF9wC687LWWzIYdYD6YV3TOY3UP/bx0&#43;E4x/g19&#43;WuiOPDUfLiTTsHKGiEtGFtcY&#43;H/tfu7xIvNK7wvMw&#43;rC77bEPcC6gdy&#43;3zB2CzJz1qRXb&#43;06qFdD0FOfukknkEZsNa84aabm/qq2X/uQK8Zu&#43;6LUlyU4iqzDgI2dvA3bX3N29&#43;xPQ6bYyz/k7Lwm1YjBM&#43;GT8CnIn&#43;ujdECcrf8LHONZcxYqDE0TuCrrbUOclXWn1vrq2J9Dt7FSUpjcu5W/shXo2PQPV5ktHqr6bIUGx4&#43;y/totC7PjFmSydqNzxziRxGzbITAGWFI3msDCjAJRUmC4JraeULl8zmgFSwgE1QlRyGZeXCM0nVW/sjR&#43;AwbGB7qmddENmvNZRdk9OXBPRl7lmgFHmUi/jqbwPhTvbWEwKLSN9l7&#43;Hx&#43;dAwyRr7Aedb8JCLjF4jn2nxK5yl7SV/Z3DKmjWy8tZ5r4WagpKdaUe27OWsV6jF9rZVnqLfSs6ifXcTZFDY8aDRCuAnHImjLxQ38&#43;ce/EW/Mk40QYDf/WxINjikaIYA2on7836VjNao&#43;3EWn5vrj2AjJ5kKLjYMxcgCwcWhrLnNNSUYrCynV7ahWZet01u9qNiH4lQTWVH63kf0uCrzqXvouCkumhs4RyM2PsEfn&#43;0IdQn9Dxy7pFv4Q&#43;VfG7sTan7Li/g988EOXHLP3tJoYHBOy3fPpe8NrWmOUQI7Ixjn0A5&#43;OzkWMFQs1hsYJ5l/KKQQ1PpNvQa02HdXlQi1BvYqaIaUxmb98fvPy0n/9HFgfqLuanw&#43;tOdHxzJglmewcWUe67lNazK4Rwonyejp/xjB94PiQMWJIcSo5r4XPt4alQ3SVgQv1bLIDlDFaVNjndrXjFFDWLjbhPUOJ5m0Xd8Tqnna0yZe6Ldko0v0QrIy1GIr8sEXkOxHwy5pPRudtDJR8LuOTY9qIY9WKqY9dS82m1Q1fT1pjjuVrJTv42GstQnB9dM0SbHjQaoR0oUMjpA9TNUKmYNS4mIFeMRfvJzV/A9kFZHaNZOPJx8cQMusPXzP4dys3ePgs5pxS7gBRfshQG3NMdvWcMYEP4RX&#43;oTKjdvi1J95FwXcDjVWb/Dj0u2jtMKU9oLchH2sBY4yxRIbaBb6A&#43;/lCCezfFeuro9amQ6Ix6cPROjtae5V8GzmT&#43;puy5liZmKf7wDpi7T7WmtUzu0YIJh0p1xbvLkQKozJ5TVS4vaO0NnvAj5u9j1BXYIihrcNH54HVZ/SsyIG7zGUKGOBjB0EN2tT6r7Wz91XoDceeePLJ7TWRL/P&#43;6NzQZO/Jxh9latnYxkV2EQ2d1K6NzvPtfDW5a3Mb20b8Ozvnrjz33HOjFtULFy5si&#43;qZM2fC82BsXxubJdkQC3e/we3NjBohmFd0bleMuticgV4PgoYZc2rkl349VFrAtuLYxhLIrscysC5n1weUZUgdj/Rg9YfzH/vTP9v85Sc/dbTW6Rr3Y8jZgvPY99qqC9Dn0I85AM7djgNf4obHvtuk6/qfMcM1grchfba2dpjC7piHGiHdGSNO4Atjrnd2tWbz38VpYVxYX6X/et/G8Xdef&#43;N2POpzipqT3XN0gfEKpsiVs2uEwFilt4T1xRsyWjTXoLPNedPQBQbKFBuC4w42YK1gpL/0uabVNBBtprbRFOALjE&#43;ePBme6wM35phDdB7M2deWZkPUGOj73Bi6nMGGnf6DeUXnd8WpU6c2J06cCM91ZgZ6ff7557dzis6NDWMIHNeaYufoN9Q4hrUem6V9NrZ&#43;UzA2Y2/OpoZr6aFNAo5T0i30PobPlpoaGL&#43;m96nsjnqkRkh35hgn&#43;1iziWmYvBEihBCiDoofiuALL7wwuBCioOLVChTq6LyYBmxwR2mGHG7Yj7774iJDN&#43;/bTboZr7Zh54JsVxv2GmwwIS7Onz8fXpNmj3rFPOgf&#43;24urQE2SO66&#43;&#43;ODGr5jbfwjphx7KqDLoU1l/HwtfyEuGgv1D83rMV5RrjVCao2OqWwzRhNjjDGWxFzjRGu244MaIUIIMQPOnj27LYYorkNBQcVbLaPniGl4/fXXjza7SwfzwHyiee4aLjiPA0MXzCIH9MzN9vvvuHPQOwvwMc2xNuaWsd71sCv4LoqHv/ilzSOPPrb9Va8InPP84Yc/sv04DexhiXSKV//ZpMD/cQ3sCRv4&#43;0vwfm6ifcMl0xybwu6Yhxoh3ZhznGjNdjxQI0QIIWYCCiGKKz572gd8vlSbrf2CxTde4YnsM3cgN&#43;SP5rVP0JSBX0cyLwHIPpfGkugOf/5zrLfmY3PHX9eIzs8NfsR9TErvyOC7TqDzW269bbCO&#43;LEK/moJf80k0&#43;AY2&#43;7IA7ah06XJAp9p6e64sYQ40Zpt&#43;agRIoQQQgghhLgMNEejd38MAR9biZ6FxgUaFWP8fC6xP&#43;X6lquv2Tzw4EPhdUKI9aFGiBBCCCGEEEIIIVaDGiFCCCGEEEIIIYRYDWqECCGEEEIIIYQQYjWoESKEEEIIIYQQQojVoEaIEEIIIYQQQgghVoMaIUIIIYQQQgghhFgNaoQIIYQQQgghhBBiNagRIoQQQgghhBBCiNWgRogQQgghhBBCCCFWgxohQgghhBBCCCGEWA1qhAghhBBCCCGEEGI1qBEihBBCCCGEEEKI1aBGiBBCCCGEEEIIIVaDGiFCCCGEEEIIIYRYDWqECCGEEEIIIYQQYjWoESKEEEIIIYQQQojVoEaIEEIIIYQQQgghVoMaIUIIIYQQQgghhFgNaoQIIYQQQgghhBBiNagRIoQQQgghhBBCiNWgRogQQgghhBBCCCFWgxohQgghhBBCCCGEWAmvbf4PQwgGPG7csFwAAAAASUVORK5CYII="
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>//问题出在时间上，计算N次方调用头文件省时间</p>
+<p>//使用函数形式为pow(a,b)</p>
+<p>#include&lt;stdio.h&gt;</p>
+<p>#include&lt;math.h&gt;</p>
+<p>double f( int n, double a[], double x )</p>
+<p>{</p>
+<p>    int i,m;</p>
+<p>    double product,sum=0;</p>
+<p>    for(m=0;m&lt;=n;m++)</p>
+<p>    {</p>
+<p>        double product=a[m]*pow(x,m);</p>
+<p>        sum+=product;</p>
+<p>    }</p>
+<p>    return sum;</p>
+<p>}</p>
+<p>double f( int n, double a[], double x )</p>
+<p>{</p>
+<p>       int i,m;</p>
+<p>       double product,sum=0;</p>
+<p>       for(m=0;m&lt;=n;m++)</p>
+<p>       {</p>
+<p>       product=a[m];</p>
+<p>       for(i=0;i&lt;m;i++)</p>
+<p>       product=product*x;</p>
+<p>       sum+=product;</p>
+<p>       }</p>
+<p>       return sum;</p>
+<p>}</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%8A%E7%A8%8E/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">上税</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E4%B8%A4%E6%95%B0%E8%AE%A1%E7%AE%97/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">两数计算</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%A7%A3%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解一元二次方程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/10001/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">10001</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Bear
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

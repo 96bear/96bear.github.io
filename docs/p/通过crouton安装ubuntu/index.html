@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1.关于crouton Chrome OS系统基于linux内核，crouton安装是基于chroot的。利用crouton可以在Chrome OS系统内装'>
+<title>通过crouton安装Ubuntu</title>
+
+<link rel='canonical' href='https://96bear.github.io/p/%E9%80%9A%E8%BF%87crouton%E5%AE%89%E8%A3%85ubuntu/'>
+
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='通过crouton安装Ubuntu'>
+<meta property='og:description' content='1.关于crouton Chrome OS系统基于linux内核，crouton安装是基于chroot的。利用crouton可以在Chrome OS系统内装'>
+<meta property='og:url' content='https://96bear.github.io/p/%E9%80%9A%E8%BF%87crouton%E5%AE%89%E8%A3%85ubuntu/'>
+<meta property='og:site_name' content='Bear'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-02-12T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-02-12T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="通过crouton安装Ubuntu">
+<meta name="twitter:description" content="1.关于crouton Chrome OS系统基于linux内核，crouton安装是基于chroot的。利用crouton可以在Chrome OS系统内装">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu0768a4c826fbae2b7bd33d97bde38f23_35393_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Bear</a></h1>
+            <h2 class="site-description">现在是过去最好的结果！</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/96bear/96bear.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li>
+          <ol>
+            <li>
+              <ol>
+                <li><a href="#1关于crouton">1.关于crouton</a></li>
+                <li><a href="#2备份chrome-os">2.备份Chrome OS</a></li>
+                <li><a href="#3进入开发者模式">3.进入开发者模式</a></li>
+                <li><a href="#_动手能力强有基础的同学接下来可以参考本文首crouton官方文档进行自定义安装_"><strong><em>动手能力强有基础的同学接下来可以参考本文首Crouton官方文档进行自定义安装</em></strong></a></li>
+              </ol>
+            </li>
+            <li><a href="#以下是我安装时的步骤">以下是我安装时的步骤：</a>
+              <ol>
+                <li><a href="#删除ubuntu">删除ubuntu</a></li>
+                <li><a href="#crouton-进阶使用">crouton 进阶使用</a></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/chromebook/" >
+                chromebook
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E9%80%9A%E8%BF%87crouton%E5%AE%89%E8%A3%85ubuntu/">通过crouton安装Ubuntu</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 12, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h4 id="1关于crouton">1.关于crouton</h4>
+<p>Chrome OS系统基于linux内核，crouton安装是基于chroot的。利用crouton可以在Chrome OS系统内装入精简的Ubuntu系统（可自行扩充），这种方式两系统的切换非常方便，<a class="link" href="https://github.com/dnschneid/crouton"  target="_blank" rel="noopener"
+    >crouton文档</a>。 不过<strong>注意</strong>了，想达到<strong>日常使用</strong>的程度，<strong>机器的硬盘是有限且绝对不够用的</strong>，这就是为什么装入的ubuntu是精简的，为什么我要把系统转移到128g的sd卡上——<strong>不用担心</strong>，对于已经安装在硬盘的系统也可以像我一样把<strong>系统转移到便携储存</strong>上，具体在后详细叙述。</p>
+<h4 id="2备份chrome-os">2.备份Chrome OS</h4>
+<p><strong>折腾以前一定要对原Chrome OS系统进行备份</strong> Chrome网上应用商店搜索并下载Chromebook Recovery Utility，准备一个4G以上的U盘插入电脑，根据提示备份（U盘格式化）——话说我没做这一步，没出问题也是幸运。</p>
+<h4 id="3进入开发者模式">3.进入开发者模式</h4>
+<p><strong>警告: 进入开放模式后，会清除此前硬盘中的所有数据！</strong> 按住Esc键、刷新键和电源按钮——顶部第一个、第四个、最后一个——进入恢复模式。听说有的Chromebook需要切换的物理开发者开关。 恢复屏幕上，按Ctrl+D，同意提示，启动进入开发人员模式。 步骤： 进入恢复模式——按 Ctrl+D——反正不是 Ctrl+D就是Enter，回车重启一次，再Ctrl+D，等一会，上面的进度条走完了之后再自动重启，接下来设置系统语言，开启调试模式(<strong>密码记牢了</strong>)，就进入开发者模式了。 以后每次开机都需要摁Ctrl+D跳过警告，否则迎接你的是30s后一声刺耳的尖鸣再进入系统——我承认，吓到过我，并且有了心理阴影。</p>
+<h4 id="_动手能力强有基础的同学接下来可以参考本文首crouton官方文档进行自定义安装_"><strong><em>动手能力强有基础的同学接下来可以参考本文首Crouton官方文档进行自定义安装</em></strong></h4>
+<h3 id="以下是我安装时的步骤">以下是我安装时的步骤：</h3>
+<ol>
+<li>
+<p><a class="link" href="https://www.lanzous.com/i9atvwb"  target="_blank" rel="noopener"
+    >下载crouton</a>请解压后仍然放入Downloads文件夹</p>
+</li>
+<li>
+<p>Ctrl+Alt+T打开crosh，输入shell并回车</p>
+</li>
+<li>
+<p>这一步很关键：<strong>Ctrl+ALT+forward</strong>，然后登录<strong>root</strong>,密码之前设置的那个调试密码。之后输入命令<code>chromeos-setdevpasswd</code> 设置新密码，这个就是下一步sudo需要的密码。Ctrl+ALT+back回到浏览器。</p>
+</li>
+<li>
+<p><strong>确保CB全局接入万维网</strong>（不然可能在安装过程中卡住），输入<code>sudo sh ~/Downloads/crouton -t xfce</code> 输入<strong>上一步设置的密码</strong>开始安装，如果你想装unity桌面的话也可以<code>sudo sh ~/Downloads/crouton -t unity</code>，之后的教程默认xfce桌面</p>
+</li>
+<li>
+<p>安装进行中，网好30分钟，网差一两小时。喝杯咖啡或者泡壶茶，休息一会。如果异常中断试试sudo startxfce能否继续。</p>
+</li>
+<li>
+<p>安装的最后要求填入用户名和密码，建议与调试密码一致（非必须一致）</p>
+</li>
+<li>
+<p>在shell中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo enter-chroot 进入终端
+</span></span><span class="line"><span class="cl">sudo startunity 启动桌面
+</span></span><span class="line"><span class="cl">sudo startxfce4 启动 xfce 桌面 
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p>在 Chrome os 和 Linux 之间切换： 从 C 到 L：shift + ctrl + alt + 前进键 从 L 到 C：shift + ctrl + alt + 后退键</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">### 其他命令（备用）
+</span></span><span class="line"><span class="cl">#### 备份与恢复
+</span></span><span class="line"><span class="cl">默认是存储在/usr/local/chroots/下，每个版本对应一个目录，***如/usr/local/chroots/xenial，所以chrootname为xenial***。
+</span></span><span class="line"><span class="cl">所以chroots的备份和恢复：
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>备份命令：sudo edit-chroot -b chrootname (生成文件precise-20141230-0321.tar.gz，将该文件mv到Downloads下面即可)</li>
+<li>恢复命令:sudo edit-chroot -r chrootname //chrootname: 所安装 ubuntu 的版本代号</li>
+</ul>
+<h4 id="删除ubuntu">删除ubuntu</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo delete-chroot chrootname 
+</span></span><span class="line"><span class="cl">//chrootname: 所安装 ubuntu 的版本代号,详见备份与恢复
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="crouton-进阶使用">crouton 进阶使用</h4>
+<p>使用 xiwi 先在 chrome 网上应用商店里下载 cronton-integration</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">sh</span> <span class="o">~/</span><span class="n">Downloads</span><span class="o">/</span><span class="n">crouton</span> <span class="o">-</span><span class="n">t</span> <span class="n">xfce</span><span class="p">,</span><span class="n">extension</span><span class="p">,</span><span class="n">xorg</span><span class="p">,</span><span class="n">xiwi</span> <span class="o">//</span><span class="err">我是在</span> <span class="n">xfce</span> <span class="err">桌面下使用的</span> <span class="n">unity</span> <span class="err">也可行</span> <span class="err">但要求下载</span> <span class="n">extension</span><span class="p">,</span><span class="n">xorg</span><span class="p">,</span><span class="n">xiwi</span>
+</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">startxfce4</span> <span class="o">-</span><span class="n">X</span> <span class="n">xiwi</span> <span class="o">//</span> <span class="err">使用</span> <span class="n">xiwi</span> <span class="err">来实现</span> <span class="err">窗口化</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以做到左边 chrome 右边 xfce 桌面</p>
+<p><a class="link" href="http://bear962464.cn/2020/02/13/831/"  target="_blank" rel="noopener"
+    ><strong>返回Chromebook折腾全攻略</strong></a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E5%86%85%E7%BD%91ssh%E8%BF%9E%E6%8E%A5%E4%B8%BB%E6%9C%BAshell%E8%84%9A%E6%9C%AC/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">内网ssh连接主机shell脚本</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/crouton-shellsd/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">crouton shell(sd)</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%BD%AC%E7%A7%BBlinux%E7%B3%BB%E7%BB%9F%E5%88%B0sd%E5%8D%A1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">转移linux系统到SD卡</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/chromebook%E6%8A%98%E8%85%BE%E5%85%A8%E6%94%BB%E7%95%A5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Chromebook折腾全攻略</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/ubuntu%E6%96%B0%E8%A3%85%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ubuntu新装环境配置</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Bear
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

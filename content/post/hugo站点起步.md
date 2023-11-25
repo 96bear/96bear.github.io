@@ -26,3 +26,14 @@ git commit -m "msg"
 git push
 ~~~
 
+迁移wordpress博客
+
+~~~
+git clone https://github.com/lonekorean/wordpress-export-to-markdown
+mv blog.WordPress.2023-08-31.xml wordpress-export-to-markdown/export.xml
+cd wordpress-export-to-markdown
+npm install 
+node index.js
+# 交互cli，自动生成dir、md，并下载img
+# 查看输出目录
+~~~

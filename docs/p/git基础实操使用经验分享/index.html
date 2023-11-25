@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Git使用经验 最基础 1 2 3 4 git clone url git pull git push Git Config相关 1.设置代理 1 2 git config --global http.proxy http://192.168.1.20:20172 git config --global https.proxy http://192.168.1.20:20172 2.关闭ssl验证 1 git config --global http.sslVerify &amp;#34;false&amp;#34; 3.查看设置 1'>
+<title>Git基础实操使用经验分享</title>
+
+<link rel='canonical' href='https://96bear.github.io/p/git%E5%9F%BA%E7%A1%80%E5%AE%9E%E6%93%8D%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/'>
+
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='Git基础实操使用经验分享'>
+<meta property='og:description' content='Git使用经验 最基础 1 2 3 4 git clone url git pull git push Git Config相关 1.设置代理 1 2 git config --global http.proxy http://192.168.1.20:20172 git config --global https.proxy http://192.168.1.20:20172 2.关闭ssl验证 1 git config --global http.sslVerify &amp;#34;false&amp;#34; 3.查看设置 1'>
+<meta property='og:url' content='https://96bear.github.io/p/git%E5%9F%BA%E7%A1%80%E5%AE%9E%E6%93%8D%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/'>
+<meta property='og:site_name' content='Bear'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-03-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-21T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Git基础实操使用经验分享">
+<meta name="twitter:description" content="Git使用经验 最基础 1 2 3 4 git clone url git pull git push Git Config相关 1.设置代理 1 2 git config --global http.proxy http://192.168.1.20:20172 git config --global https.proxy http://192.168.1.20:20172 2.关闭ssl验证 1 git config --global http.sslVerify &amp;#34;false&amp;#34; 3.查看设置 1">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu0768a4c826fbae2b7bd33d97bde38f23_35393_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Bear</a></h1>
+            <h2 class="site-description">现在是过去最好的结果！</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/96bear/96bear.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#git使用经验">Git使用经验</a>
+      <ol>
+        <li><a href="#最基础">最基础</a></li>
+        <li><a href="#git-config相关">Git Config相关</a>
+          <ol>
+            <li><a href="#1设置代理">1.设置代理</a></li>
+            <li><a href="#2关闭ssl验证">2.关闭ssl验证</a></li>
+            <li><a href="#3查看设置">3.查看设置</a></li>
+          </ol>
+        </li>
+        <li><a href="#branch相关">branch相关</a>
+          <ol>
+            <li><a href="#1创建分支">1.创建分支</a></li>
+            <li><a href="#2查看所有分支">2.查看所有分支</a></li>
+            <li><a href="#3切换分支">3.切换分支</a></li>
+            <li><a href="#4删除分支">4.删除分支</a></li>
+          </ol>
+        </li>
+        <li><a href="#实际使用">实际使用</a>
+          <ol>
+            <li><a href="#1如何贡献代码">1.如何贡献代码</a></li>
+            <li><a href="#2git-push-过的东西后悔了怎么办">2.Git push 过的东西，后悔了怎么办</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" >
+                linux
+            </a>
+        
+            <a href="/categories/app/" >
+                app
+            </a>
+        
+            <a href="/categories/zatan/" >
+                zatan
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/git%E5%9F%BA%E7%A1%80%E5%AE%9E%E6%93%8D%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">Git基础实操使用经验分享</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 21, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="git使用经验">Git使用经验</h1>
+<h2 id="最基础">最基础</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone url
+</span></span><span class="line"><span class="cl">git pull
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git push
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="git-config相关">Git Config相关</h2>
+<h3 id="1设置代理">1.设置代理</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global http.proxy http://192.168.1.20:20172
+</span></span><span class="line"><span class="cl">git config --global https.proxy http://192.168.1.20:20172
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2关闭ssl验证">2.关闭ssl验证</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global http.sslVerify <span class="s2">&#34;false&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3查看设置">3.查看设置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global -l
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="branch相关">branch相关</h2>
+<h3 id="1创建分支">1.创建分支</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git branch branch_name
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2查看所有分支">2.查看所有分支</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git branch -l
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3切换分支">3.切换分支</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git branch branch_name
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4删除分支">4.删除分支</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git branch -d branch_name
+</span></span><span class="line"><span class="cl"><span class="c1"># 强行删除 -d换-D</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="实际使用">实际使用</h2>
+<h3 id="1如何贡献代码">1.如何贡献代码</h3>
+<p>转载自<a class="link" href="http://www.parallellabs.com/2014/08/05/how-to-contribute-to-spark-step-by-step/"  target="_blank" rel="noopener"
+    >一步一步教你怎样给Apache Spark贡献代码 | Parallel Labs</a></p>
+<p><strong>以Apache Spark为例</strong></p>
+<ol>
+<li>到 Apache Spark 的github 页面内点击 <strong>fork</strong> 按钮</li>
+<li>你的github仓库中会出现 spark 这个项目</li>
+<li><strong>本地电脑上</strong>， 使用</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone <span class="o">[</span>你的 spark repository 的 github 地址<span class="o">]</span>
+</span></span><span class="line"><span class="cl">例如：
+</span></span><span class="line"><span class="cl">git clone git@github.com:gchen/spark.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>本地得到一个叫 <strong>spark 的文件夹</strong></p>
+<ol start="4">
+<li><strong>进入该文件夹</strong>，使用</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git remote add upstream https://github.com/apache/spark.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>添加 Apache/spark 的远程地址</p>
+<ol start="5">
+<li><strong>使用**</strong></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git pull upstream master 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>得到目前的 Apache/spark 的最新代码，现在我们在 你自己fork的Spark代码仓库的master 这个分支上，以后这个分支就留作跟踪 upstream 的远程代码</p>
+<ol start="6">
+<li><strong>好了</strong>，现在你可以开始贡献自己的代码了。</li>
+</ol>
+<p>按照开发惯例，我们一般<strong>不在</strong>自己代码仓库的master上提交新的代码，而是需要为每一个新增的功能或者bugfix新增一个<strong>新的branch</strong>。使用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git checkout -b my_change
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建新的分支，现在我们可以在这个分支上更改代码</p>
+<ol start="7">
+<li><strong>添加代码</strong>，<strong>并提交代码</strong>：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m “message need to be added here”
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="8">
+<li>提交Pull Request<strong>前合并冲突</strong></li>
+</ol>
+<p>在我们提交完我们的代码更新之后，一个常见的问题是远程的upstream（即apache/spark)已经有了<strong>新的更新</strong>，从而会导致我们提交Pull Request时会导致conflict。为此我们可以在提交自己这段代码前手动先把远程其他开发者的commit与我们的commit合并。使用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git checkout master
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>切换到我们自己的<strong>主分支</strong>，使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git pull upstream master 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>拉出apache spark的<strong>最新</strong>的代码。<strong>切换回 my_change 分支</strong>，使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git checkout my_change
+</span></span><span class="line"><span class="cl">git rebase master
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后把自己在my_change分支中的代码更新到在自己github代码仓库的my_change分支中去：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">git push origin my_change 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将代码提交到自己的仓库。</p>
+<ol start="9">
+<li>提交<strong>Pull</strong> <strong>Request</strong></li>
+</ol>
+<p>这时候可以在自己的仓库页面跳转到自己的my_change分支，然后点击 new pull request。按照Spark的风格规定，我们需要在新的Pull Request的标题最前面加上JIRA代号。所以我们需要在System Dashboard上创建一个新的JIRA，例如[SPARK-2859] Update url of Kryo project in related docs)。然后把SPARK-2859这个代号加到你的Pull Request的标题里面。</p>
+<p>例如：<a class="link" href="https://github.com/apache/spark/pull/1782"  target="_blank" rel="noopener"
+    >[SPARK-2859] Update url of Kryo project in related docs by gchen · Pull Request #1782 · apache/spark · GitHub</a></p>
+<p>Pull Rquest的描述的写法很重要。有几个要点：</p>
+<p>（1）在Pull Request的描述中，一定记得加上你提交的JIRA的url，方便JIRA系统自动把Pull Request的链接加进去，例如<a class="link" href="https://issues.apache.org/jira/browse/SPARK-2859"  target="_blank" rel="noopener"
+    >[SPARK-2859] Update url of Kryo project in related docs</a>。</p>
+<p>（2）PR的描述要言简意赅，讲清楚你要解决的问题是什么，你怎么解决的。大家可以多参考其他committer提交的PR。</p>
+<ol start="10">
+<li>等待Spark committer审核你的PR。</li>
+</ol>
+<p>如果需要进一步的代码修改，你可以继续在本地的my_change分支下commit新的代码，所有新的代码会在”git push origin my_change”之后自动被加入你之前提交的Pull Request中，方便进行问题的跟踪和讨论。</p>
+<p>11**.** 如果一切顺利，具有apache/spark.git 写权限的commiter就会把你的代码merge到apache/spark.git的master里面去了！</p>
+<p>ps. 你的代码被merge完之后，就可以把my_change这个分支给删掉了:)</p>
+<h3 id="2git-push-过的东西后悔了怎么办">2.Git push 过的东西，后悔了怎么办</h3>
+<ol>
+<li>
+<p>查看你要回到的那个版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git log
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>回退到上个版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git reset --hard HEAD^ 
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>退到/进到指定commit_id</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git reset --hard commit_id
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改提交到远程</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git push origin HEAD --force
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/vmware%E7%BC%A9%E5%B0%8F%E7%A3%81%E7%9B%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">VmWare缩小磁盘占用大小</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E4%BB%8Emysql%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7excel%E8%A1%A8%E6%A0%BC%E7%AD%89%E5%A4%8D%E5%88%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%A0%87%E5%87%86%E7%9A%84markdown%E8%A1%A8%E6%A0%BC/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">从mysql可视化工具、excel表格等复制的数据转化为标准的markdown表格</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%AE%A4%E8%AF%86c/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">认识C#</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E7%8E%A9%E5%AE%A2%E4%BA%91armbian%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95-docker%E7%9B%AE%E5%BD%95%E8%BD%AC%E7%A7%BB/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">玩客云（Armbian）空间不足解决办法-docker目录转移</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/wordpress%E8%BF%81%E7%A7%BBwindows-to-linux/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">WordPress迁移（windows to linux）</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Bear
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. strcpy char *strcpy(char *destin, char *source); 功能：将source指向的字符串拷到destin。 1 int main() 2 { 3 4 char dest[5]; 5 char *src=&amp;ldquo;123456&amp;rdquo;; 6 strcpy(dest, src); 7 printf(&amp;ldquo;dest= %s, %s, %s&amp;rdquo;, dest, dest&#43;4, dest&#43;5); 8 9 return 0; 10 } 从结果可知确实将s'>
+<title>C &lt;string.h&gt;常用函数介绍</title>
+
+<link rel='canonical' href='https://96bear.github.io/p/c-string.h%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D/'>
+
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='C &lt;string.h&gt;常用函数介绍'>
+<meta property='og:description' content='1. strcpy char *strcpy(char *destin, char *source); 功能：将source指向的字符串拷到destin。 1 int main() 2 { 3 4 char dest[5]; 5 char *src=&amp;ldquo;123456&amp;rdquo;; 6 strcpy(dest, src); 7 printf(&amp;ldquo;dest= %s, %s, %s&amp;rdquo;, dest, dest&#43;4, dest&#43;5); 8 9 return 0; 10 } 从结果可知确实将s'>
+<meta property='og:url' content='https://96bear.github.io/p/c-string.h%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D/'>
+<meta property='og:site_name' content='Bear'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2019-08-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2019-08-31T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="C &lt;string.h&gt;常用函数介绍">
+<meta name="twitter:description" content="1. strcpy char *strcpy(char *destin, char *source); 功能：将source指向的字符串拷到destin。 1 int main() 2 { 3 4 char dest[5]; 5 char *src=&amp;ldquo;123456&amp;rdquo;; 6 strcpy(dest, src); 7 printf(&amp;ldquo;dest= %s, %s, %s&amp;rdquo;, dest, dest&#43;4, dest&#43;5); 8 9 return 0; 10 } 从结果可知确实将s">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu0768a4c826fbae2b7bd33d97bde38f23_35393_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Bear</a></h1>
+            <h2 class="site-description">现在是过去最好的结果！</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/96bear/96bear.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BC%96%E7%A8%8B/" >
+                编程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/c-string.h%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D/">C &lt;string.h&gt;常用函数介绍</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 31, 2019</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><strong>1. strcpy</strong> char *strcpy(char *destin, char *source); 功能：将source指向的字符串拷到destin。</p>
+<p>1 int main() 2 { 3 4 char dest[5]; 5 char *src=&ldquo;123456&rdquo;; 6 strcpy(dest, src); 7 printf(&ldquo;dest= %s, %s, %s&rdquo;, dest, dest+4, dest+5); 8 9 return 0; 10 }</p>
+<p>从结果可知确实将src的内容复制过去了，但是全部复制导致dest满了，使用不当就会出错！ 2. strncpy char *strncpy(char *destin, char *source, int len); 功能：将source指向的len个字符串拷到destin。</p>
+<p>1 int main() 2 { 3 4 char dest[5]; 5 char *src=&ldquo;123456&rdquo;; 6 strncpy(dest, src, 3); 7 dest[3]= &lsquo;\0&rsquo;; 8 printf(&ldquo;dest= %s, %s, %s&rdquo;, dest, dest+4, dest+5); 9 10 return 0; 11 }</p>
+<p>结果可知加上‘\0’结束符后dest内容变的更安全，strcpy和strncpy要额外加字符结束符！ 3. strcat char* strcat(char * str1,char * str2); 功能: 把字符串str2接到str1后面,str1最后的&rsquo;\0&rsquo;被取消</p>
+<p>1 int main() 2 { 3 4 char dest[5]=&ldquo;abcd&rdquo;; 5 char *src=&ldquo;123456&rdquo;; 6 strcat(dest, src); 7 printf(&ldquo;dest= %s&rdquo;, dest); 8 9 return 0; 10 }</p>
+<p>4. strncat char *strncat(char *dest, const char *src, size_t maxlen) 功能: 将字符串src中前maxlen个字符连接到dest中</p>
+<p>1 int main() 2 { 3 4 char dest[10]=&ldquo;abcd&rdquo;; 5 char *src=&ldquo;123456&rdquo;; 6 strncat(dest, src, 8); 7 printf(&ldquo;dest= %s&rdquo;, dest); 8 9 return 0; 10 }</p>
+<p>与strncpy不同，strncat会自动在末尾加‘\0’，若指定长度超过源字符串长度，则只复制源字符串长度即停止，更安全！ 5. strcmp int strcmp(char * str1,char * str2); 功能: 比较两个字符串str1,str2 返回: str1&lt;str2,返回负数;str1=str2,返回 0;str1&gt;str2,返回正数</p>
+<p>1 int main() 2 { 3 4 char dest[10]=&ldquo;abcd&rdquo;; 5 char *src=&ldquo;a23456&rdquo;; 6 char d2[8]=&ldquo;abcd&rdquo;; 7 int res; 8 res=strcmp(dest, src); 9 printf(&ldquo;res= %d \n&rdquo;, res); 10 res=strcmp(dest, d2); 11 printf(&ldquo;res= %d \n&rdquo;, res); 12 13 return 0; 14 }</p>
+<p>结果可知每一位都要比较，且与原字符数组长度无关。 6. strncmp int strncmp(char *str1,char *str2,int count) 功能: 对str1和str2中的前count个字符按字典顺序比较 返回: 小于0：str1&lt;str2，等于0：str1=str2，大于0：str1&gt;str2</p>
+<p>int main() {</p>
+<p>char dest[10]=&ldquo;abcd&rdquo;; char *src=&ldquo;a23456&rdquo;; char d2[8]=&ldquo;abcd&rdquo;; int res; res=strncmp(dest, src, 1); printf(&ldquo;res= %d \n&rdquo;, res); res=strncmp(dest, d2, 1); printf(&ldquo;res= %d \n&rdquo;, res);</p>
+<p>return 0; }</p>
+<p>7. strchr char* strchr(char* str,char ch); 功能: 找出str指向的字符串中第一次出现字符ch的位置 返回: 返回指向该位置的指针,如找不到,则返回空指针</p>
+<p>1 int main() 2 { 3 4 char dest[10]=&ldquo;abcd&rdquo;; 5 char* rp; 6 char ch= &lsquo;c&rsquo;; 7 rp=strchr(dest, ch); 8 if(NULL == rp) 9 printf(&ldquo;no %c exist&rdquo;, ch); 10 else11 printf(&ldquo;pos of %c is %d&rdquo;, ch, (int)(rp-dest+1)); 12 13 return 0; 14 }</p>
+<p>8. strrchr char *strrchr(const char *s, int c) 功能: 得到字符串s中最后一个含有c字符的位置指针 返回: 位置指针</p>
+<p>1 int main() 2 { 3 4 char dest[10]=&ldquo;abcdabc&rdquo;; 5 char* rp; 6 char ch= &lsquo;c&rsquo;; 7 rp=strrchr(dest, ch); 8 if(NULL == rp) 9 printf(&ldquo;no %c exist&rdquo;, ch); 10 else11 printf(&ldquo;pos of %c is %d&rdquo;, ch, (int)(rp-dest+1)); 12 13 return 0; 14 }</p>
+<p>strrchr 比strchr多的 r 意指反向寻找，位置都是从1开始计数（非从0开始） 9. strstr char* strstr(char* str1,char* str2); 功能:找出str2字符串在str1字符串中第一次出现的位置(不包括str2的串结束符) 返回: 返回该位置的指针,如找不到,返回空指针</p>
+<p>1 int main() 2 { 3 4 char dest[10]=&ldquo;abcdabc&rdquo;; 5 char* rp; 6 char ch1[]= &ldquo;c&rdquo;; 7 char str2[]= &ldquo;cda&rdquo;; 8 rp=strstr(dest, ch1); 9 if(NULL == rp) 10 printf(&ldquo;no %s exist&rdquo;, ch1); 11 else12 printf(&ldquo;substring is %s \n&rdquo;, rp); 13 14 rp=strstr(dest, str2); 15 if(NULL == rp) 16 printf(&ldquo;no %s exist&rdquo;, str2); 17 else18 printf(&ldquo;substring is %s &ldquo;, rp); 19 20 return 0; 21 }</p>
+<p>可以找单个字符串（字符不符合参数要求） 10. strnset char *strnset(char *s, int ch, size_t n) 功能: 将字符串s中前n个字符设置为ch的值 返回: 指向s的指针</p>
+<p>1 int main() 2 { 3 4 char dest[10]=&ldquo;abcdabc&rdquo;; 5 char* rp; 6 char ch= &lsquo;F&rsquo;; 7 rp=strnset(dest, ch, 4); 8 printf(&ldquo;after strnset dest is %s \n&rdquo;, rp); 9 10 return 0; 11 }</p>
+<p>11. strset char *strset(char *s, int ch) 功能: 将字符串s中所有字符设置为ch的值 返回: 指向s的指针</p>
+<p>1 int main() 2 { 3 4 char dest[10]=&ldquo;abcdabc&rdquo;; 5 char* rp; 6 char ch= &lsquo;F&rsquo;; 7 rp=strset(dest, ch); 8 printf(&ldquo;after strnset dest is %s \n&rdquo;, rp); 9 printf(&ldquo;after strnset dest is %s \n&rdquo;, dest); 10 return 0; 11 }</p>
+<p>结果的 rp和dest 都被修改为同一内容！ 12. strtok char *strtok(char *s1, const char *s2) 功能:分解s1字符串，用特定分隔符(s2)分隔成多个字符串 返回: 字符串s1中首次出现s2中的字符前的子字符串指针 strtok()在参数s1的字符串中发现参数s2中包涵的分割字符时，则会将该字符改为\0字符。在第一次调用时，strtok()必需给予参数s1字符串，往后的调用则将参数s1设置成 NULL。每次调用成功则返回指向被分割出片段的指针。</p>
+<p>1 int main() 2 { 3 4 char dest[]=&ldquo;ab,cd,ef,c&rdquo;; 5 char* rp; 6 char ch[]= &ldquo;,&rdquo;; 7 rp=strtok(dest, ch); 8 while(NULL != rp) 9 { 10 printf(&ldquo;dest: %s &ldquo;, dest); 11 printf(&ldquo;rp: %s \n&rdquo;, rp); 12 rp=strtok(NULL, ch); 13 } 14 15 return 0; 16 }</p>
+<p>说明：尽量使用可重入版的strtok，Windows平台下为strtok_s，Linux平台下为strtok_r。 牢记strtok函数族的分隔规则：忽略字符串前后的分隔符，连续的分隔符被当做一个处理。 在使用strtok前，请对源字符串进行备份，除非你可以接受字符串被修改这一事实（修改为分隔的第一个字符串）。 13. strupr char *strupr(char *s) 功能: 将字符串s中的字符变为大写</p>
+<p>1 int main() 2 { 3 4 char dest[]=&ldquo;ab,cd,EF,c&rdquo;; 5 char* rp; 6 rp=strupr(dest); 7 printf(&ldquo;dest: %s, rp: %s&rdquo;, dest, rp); 8 9 return 0; 10 }</p>
+<p>原字符串dest 也被修改！！，对符号和大写字符无影响。 char *strlwr(char *s)与它相反，将字符串中的字符变为小写字符 还有一些 memxxx() 函数下次单独说明，有问题欢迎评论~~</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E8%AE%A4%E8%AF%86c/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">认识C#</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%A2%9E%E5%8A%A0%E5%8F%B3%E9%94%AE%E9%80%89%E9%A1%B9%E9%80%9A%E8%BF%87pycharm%E6%89%93%E5%BC%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">增加右键选项“通过Pycharm打开”</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/python%E5%B0%8F%E5%B7%A5%E5%85%B7%E7%A4%BA%E4%BE%8B1%E6%97%A5%E7%A8%8B%E7%AE%A1%E7%90%86%E5%B0%8F%E5%B7%A5%E5%85%B7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">python小工具示例1《日程管理小工具》</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E7%94%A8%E6%89%8B%E6%9C%BA%E8%8E%B7%E5%8F%96cookie%E6%97%A0%E9%97%A8%E6%A7%9B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">用手机获取cookie(无门槛)</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E4%BB%8Egithub%E6%8B%89%E5%8F%96proxylist%E6%9C%AC%E5%9C%B0%E9%AA%8C%E6%B4%BB%E5%B9%B6%E4%BF%9D%E5%AD%98%E4%B8%BAtxt%E6%96%87%E6%A1%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">从github拉取proxylist本地验活并保存为txt文档</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Bear
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='发布博客流程 作为备忘 1 hugo new post/hugo站点起步.md 在content/post下生成一份文档，完成编辑 1 hugo -d docs 生成静态页面文件到doc'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='发布博客流程 作为备忘 1 hugo new post/hugo站点起步.md 在content/post下生成一份文档，完成编辑 1 hugo -d docs --buildDrafts 生成静态页面文件到do'>
 <title>Hugo站点起步</title>
 
-<link rel='canonical' href='https://96bearli.github.io/p/hugo%E7%AB%99%E7%82%B9%E8%B5%B7%E6%AD%A5/'>
+<link rel='canonical' href='https://96bear.github.io/p/hugo%E7%AB%99%E7%82%B9%E8%B5%B7%E6%AD%A5/'>
 
 <link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='Hugo站点起步'>
-<meta property='og:description' content='发布博客流程 作为备忘 1 hugo new post/hugo站点起步.md 在content/post下生成一份文档，完成编辑 1 hugo -d docs 生成静态页面文件到doc'>
-<meta property='og:url' content='https://96bearli.github.io/p/hugo%E7%AB%99%E7%82%B9%E8%B5%B7%E6%AD%A5/'>
+<meta property='og:description' content='发布博客流程 作为备忘 1 hugo new post/hugo站点起步.md 在content/post下生成一份文档，完成编辑 1 hugo -d docs --buildDrafts 生成静态页面文件到do'>
+<meta property='og:url' content='https://96bear.github.io/p/hugo%E7%AB%99%E7%82%B9%E8%B5%B7%E6%AD%A5/'>
 <meta property='og:site_name' content='Bear'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-11-25T17:07:27&#43;08:00'/><meta property='article:modified_time' content='2023-11-25T17:07:27&#43;08:00'/>
 <meta name="twitter:title" content="Hugo站点起步">
-<meta name="twitter:description" content="发布博客流程 作为备忘 1 hugo new post/hugo站点起步.md 在content/post下生成一份文档，完成编辑 1 hugo -d docs 生成静态页面文件到doc">
+<meta name="twitter:description" content="发布博客流程 作为备忘 1 hugo new post/hugo站点起步.md 在content/post下生成一份文档，完成编辑 1 hugo -d docs --buildDrafts 生成静态页面文件到do">
     </head>
     <body class="
     article-page
@@ -76,7 +76,7 @@
             
                 <li>
                     <a 
-                        href='https://github.com/Shadow-Kylin/Shadow-Kylin.github.io'
+                        href='https://github.com/96bear/96bear.github.io'
                         target="_blank"
                         title="GitHub"
                         rel="me"
@@ -332,7 +332,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">hugo -d docs
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">hugo -d docs --buildDrafts
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>生成静态页面文件到docs目录</p>
@@ -346,6 +346,27 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git add .
 </span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;msg&#34;</span>
 </span></span><span class="line"><span class="cl">git push
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>迁移wordpress博客</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">lonekorean</span><span class="o">/</span><span class="n">wordpress</span><span class="o">-</span><span class="k">export</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">markdown</span>
+</span></span><span class="line"><span class="cl"><span class="n">mv</span> <span class="n">blog</span><span class="o">.</span><span class="n">WordPress</span><span class="o">.</span><span class="mi">2023</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mf">31.</span><span class="n">xml</span> <span class="n">wordpress</span><span class="o">-</span><span class="k">export</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">markdown</span><span class="o">/</span><span class="k">export</span><span class="o">.</span><span class="n">xml</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">wordpress</span><span class="o">-</span><span class="k">export</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">markdown</span>
+</span></span><span class="line"><span class="cl"><span class="n">npm</span> <span class="n">install</span> 
+</span></span><span class="line"><span class="cl"><span class="n">node</span> <span class="n">index</span><span class="o">.</span><span class="n">js</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 交互cli，自动生成dir、md，并下载img</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看输出目录</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>

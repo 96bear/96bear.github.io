@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>javascript on Bear</title>
+        <link>https://96bear.github.io/categories/javascript/</link>
+        <description>Recent content in javascript on Bear</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Bear</copyright>
+        <lastBuildDate>Mon, 06 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://96bear.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>B站自动取关油猴脚本</title>
+        <link>https://96bear.github.io/p/b%E7%AB%99%E8%87%AA%E5%8A%A8%E5%8F%96%E5%85%B3%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/</link>
+        <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/b%E7%AB%99%E8%87%AA%E5%8A%A8%E5%8F%96%E5%85%B3%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/OChItD5fc1jzX8W.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20200406211012181&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装链接&#34;&gt;安装链接&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://greasyfork.org/zh-CN/scripts/399760-bilibili%E8%87%AA%E5%8A%A8%E5%8F%96%E5%85%B3&#34;  title=&#34;点击这里直达greasyfork&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;点击这里直达greasyfork&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;这是一个B站的自动取关脚本&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;原理&#34;&gt;原理&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;计时器自动刷新,并在本页面的关注列表点击取消关注&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;启动页面&#34;&gt;启动页面&lt;/h2&gt;
+&lt;h3 id=&#34;方法一&#34;&gt;方法一&lt;/h3&gt;
+&lt;p&gt;*&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://space.bilibili.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://space.bilibili.com/&lt;/a&gt;&lt;/em&gt;/fans/follow**&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;*为你的B站UID&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;方法二&#34;&gt;方法二&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;也可通过首页&amp;gt;关注按钮进入&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/7M4bE5oulJp3dyZ.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20200406204835556&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/VLnIahApdWb3xgf.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20200406205313574&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;刷新速度越快可以填写越小的数字,随便填,不管用再增加&lt;/strong&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>JavaScript初学笔记1||打印 定义 运算符</title>
+        <link>https://96bear.github.io/p/javascript%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B01%E6%89%93%E5%8D%B0-%E5%AE%9A%E4%B9%89-%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
+        <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/javascript%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B01%E6%89%93%E5%8D%B0-%E5%AE%9A%E4%B9%89-%E8%BF%90%E7%AE%97%E7%AC%A6/</guid>
+        <description>&lt;p&gt;// JavaScript初学笔记1
+// 打印 定义 运算符&lt;/p&gt;
+&lt;p&gt;// 打印
+// log(&amp;ldquo;helloword&amp;rdquo;);&lt;/p&gt;
+&lt;p&gt;// var let const
+// var a=10;//var 全局变量
+// let b=11;//let 局部变量
+// const c=20;//const 常量
+// log(a,b,c);&lt;/p&gt;
+&lt;p&gt;// 简单运算符：+-*/=&amp;gt;&amp;lt;%等
+// 关系运算符：&amp;amp;&amp;amp; ||
+// 自加等和C一致
+//注意===
+/* //Examples 1
+const right=&amp;ldquo;成功&amp;rdquo;,misktake=&amp;ldquo;失败&amp;rdquo;;
+var a=1,b=3;
+var result=a+b;
+log(result);//计算赋值&lt;/p&gt;
+&lt;p&gt;//几句简单判断
+if(a===b)
+log(right);
+else log(misktake);&lt;/p&gt;
+&lt;p&gt;if(a==b)
+log(right);
+else log(misktake);&lt;/p&gt;
+&lt;p&gt;if(a&amp;amp;&amp;amp;b)
+log(right);
+else log(misktake);&lt;/p&gt;
+&lt;p&gt;if(a||b)
+log(right);
+else log(misktake);&lt;/p&gt;
+&lt;p&gt;var result1=a++;
+log(result1);
+log(a);//观察变化
+var result2=++b;
+log(result2);//++在后先赋值后自增 */&lt;/p&gt;
+&lt;p&gt;// test 1 0 true false
+/* if(1&amp;amp;&amp;amp;0)
+log(&amp;ldquo;right&amp;rdquo;);
+else log(&amp;ldquo;misktake&amp;rdquo;); */
+/* if(true||false)
+log(&amp;ldquo;right&amp;rdquo;);
+else log(&amp;ldquo;misktake&amp;rdquo;); */
+/* if(true&amp;amp;&amp;amp;1)
+log(&amp;ldquo;right&amp;rdquo;);
+else log(&amp;ldquo;misktake&amp;rdquo;); */&lt;/p&gt;
+&lt;p&gt;//test sanyuan
+/* var a=1,b=2;
+log(a&amp;gt;b?1:2); */&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>JavaScript初学笔记2||定义类型 取整 循环</title>
+        <link>https://96bear.github.io/p/javascript%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B02%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B-%E5%8F%96%E6%95%B4-%E5%BE%AA%E7%8E%AF/</link>
+        <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/javascript%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B02%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B-%E5%8F%96%E6%95%B4-%E5%BE%AA%E7%8E%AF/</guid>
+        <description>&lt;p&gt;// JavaScript初学笔记2||定义类型 取整 循环 &lt;/p&gt;
+&lt;p&gt;// var a=&amp;ldquo;helloword你好！&amp;rdquo;;//字符
+// var b=10;//number
+// var c=true;//boolean true flase&lt;/p&gt;
+&lt;p&gt;/* var number=8.5;
+var result=Math.trunc(number);//取整，理解为C强制int型
+log(result);
+var result1=Math.floor(number);//下退
+log(result1);
+var result2=Math.ceil(number);//上进,点后除零都进一
+log(result2);
+var result31=Math.round(number);//四舍五入
+log(result31);
+var result32=Math.round(number-0.01);//四舍五入,可在函数中运算
+log(number-0.01);//打印8.49
+log(result32); */&lt;/p&gt;
+&lt;p&gt;/* //随机数2方法
+var result41=Math.random();//0-1随机浮点数
+log(result41);
+var result42=Math.trunc(Math.random()*100);//尝试取需要的位数1-100
+log(result42);//成功，猜测是否存在0和1？&lt;/p&gt;
+&lt;p&gt;random(1,10) //可能重复*/&lt;/p&gt;
+&lt;p&gt;//初学者的尝试↓
+/* for(var i=0;i&amp;lt;15;i++)
+{
+    var m=random(1,10);
+    log(m);
+    if(m&amp;gt;9) 
+    {
+        sleep(1000);
+        log(&amp;ldquo;sleep(1000)&amp;rdquo;);
+    }
+} */&lt;/p&gt;
+&lt;p&gt;//循环
+//if语句switch语句同C语言；
+//switch 关键 switch变量 case： break default&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>JavaScript初学笔记3||循环 数组 冒泡排序</title>
+        <link>https://96bear.github.io/p/javascript%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B03%E5%BE%AA%E7%8E%AF-%E6%95%B0%E7%BB%84-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</link>
+        <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/javascript%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B03%E5%BE%AA%E7%8E%AF-%E6%95%B0%E7%BB%84-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</guid>
+        <description>&lt;p&gt;// JavaScript初学笔记3||循环 数组 冒泡排序&lt;/p&gt;
+&lt;p&gt;/* for(;;)
+log(&amp;ldquo;LOL\n&amp;rdquo;); */
+/* while(true)
+log(&amp;ldquo;LOL\n&amp;rdquo;); */
+/* do log(&amp;ldquo;LOL\n&amp;rdquo;);
+while(true); */
+/* var a=3
+for(;;)
+log(&amp;ldquo;LOL\n&amp;rdquo;+a);//log的复合打印写法 和 牛X的不加;也能运行 */&lt;/p&gt;
+&lt;p&gt;/* var number =[1,2,3,4,5,6];
+//数组的表示
+/* log(number[0],number[1]+number[2]);//尝试输出1 5
+log(number[0],number[1],number[2]);//right
+log(number.length);//length */
+/* for(let count=0;count&amp;lt;number.length;count++)
+log(number[count]); //以上二者的结合*/&lt;/p&gt;
+&lt;p&gt;// number.push(100);//数组放入
+// number.shift();//删除左侧第一个 队列先进先出?
+// number.pop();//删除右侧最后一个 所以什么结构？*/
+//log(number)  &lt;/p&gt;
+&lt;p&gt;/* var messages=&amp;ldquo;hello|world&amp;rdquo;;
+var result=messages.split(&amp;quot;|&amp;quot;);
+log (result[0]+&amp;quot;\n&amp;quot;);
+log (result[1]);//转为了两个小的字符串，分别存入 好奇内在
+ */&lt;/p&gt;
+&lt;p&gt;/* //由大到小冒泡排序
+var number =[16,23,3,48,15,46,75,123,54,11,2,8,33];
+//while(number.length===100)number.push(random(1,140));
+//var kk=number.length;
+for(let i=0;i&amp;lt;number.length-1;i++)
+{
+    //for(let j=0;j&amp;lt;kk-1;j++)//kk的自减可以改成
+    for(let j=0;j&amp;lt;number.length-1-i;j++)
+    {
+        if(number[j]&amp;lt;number[j+1])//如果小到大这里改为&amp;gt;
+        {let a=number[j];
+            number[j]=number[j+1];
+            number[j+1]=a;
+        }
+    }
+}
+log(number); */&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>开篇：学习JavaScript记录</title>
+        <link>https://96bear.github.io/p/%E5%BC%80%E7%AF%87%E5%AD%A6%E4%B9%A0javascript%E8%AE%B0%E5%BD%95/</link>
+        <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/%E5%BC%80%E7%AF%87%E5%AD%A6%E4%B9%A0javascript%E8%AE%B0%E5%BD%95/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/image-3.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;开个坑学习JavaScript，目标是使用autojs制作手机脚本，本文作为开篇日后添加后文目录。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://bear962464.cn/2019/12/26/787/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JavaScript初学笔记1||打印 定义 运算符&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://bear962464.cn/2019/12/26/795/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JavaScript初学笔记2||定义类型 取整 循环&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://bear962464.cn/2019/12/26/798/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JavaScript初学笔记3||循环 数组 冒泡排序&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

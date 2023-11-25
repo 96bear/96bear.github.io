@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='说明 Github仓库访问，请多多star！ 从github拉取proxylist，本地验活后保存为txt文档 使用多线程加快速度 type可选 自动'>
+<title>从github拉取proxylist本地验活并保存为txt文档</title>
+
+<link rel='canonical' href='https://96bear.github.io/p/%E4%BB%8Egithub%E6%8B%89%E5%8F%96proxylist%E6%9C%AC%E5%9C%B0%E9%AA%8C%E6%B4%BB%E5%B9%B6%E4%BF%9D%E5%AD%98%E4%B8%BAtxt%E6%96%87%E6%A1%A3/'>
+
+<link rel="stylesheet" href="/scss/style.min.24ef1cc321916467896e8c70c10c0ad7b98c2a8df14298032fb637216e397f50.css"><meta property='og:title' content='从github拉取proxylist本地验活并保存为txt文档'>
+<meta property='og:description' content='说明 Github仓库访问，请多多star！ 从github拉取proxylist，本地验活后保存为txt文档 使用多线程加快速度 type可选 自动'>
+<meta property='og:url' content='https://96bear.github.io/p/%E4%BB%8Egithub%E6%8B%89%E5%8F%96proxylist%E6%9C%AC%E5%9C%B0%E9%AA%8C%E6%B4%BB%E5%B9%B6%E4%BF%9D%E5%AD%98%E4%B8%BAtxt%E6%96%87%E6%A1%A3/'>
+<meta property='og:site_name' content='Bear'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-01-30T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-01-30T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="从github拉取proxylist本地验活并保存为txt文档">
+<meta name="twitter:description" content="说明 Github仓库访问，请多多star！ 从github拉取proxylist，本地验活后保存为txt文档 使用多线程加快速度 type可选 自动">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu0768a4c826fbae2b7bd33d97bde38f23_35393_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Bear</a></h1>
+            <h2 class="site-description">现在是过去最好的结果！</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/96bear/96bear.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#说明">说明</a></li>
+    <li><a href="#添加源">添加源</a>
+      <ol>
+        <li><a href="#注意">注意</a></li>
+        <li><a href="#模板">模板</a></li>
+      </ol>
+    </li>
+    <li><a href="#免责">免责</a></li>
+    <li><a href="#当前版本源码">当前版本源码</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" >
+                linux
+            </a>
+        
+            <a href="/categories/python/" >
+                python
+            </a>
+        
+            <a href="/categories/ubuntu/" >
+                ubuntu
+            </a>
+        
+            <a href="/categories/%E7%BC%96%E7%A8%8B/" >
+                编程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E4%BB%8Egithub%E6%8B%89%E5%8F%96proxylist%E6%9C%AC%E5%9C%B0%E9%AA%8C%E6%B4%BB%E5%B9%B6%E4%BF%9D%E5%AD%98%E4%B8%BAtxt%E6%96%87%E6%A1%A3/">从github拉取proxylist本地验活并保存为txt文档</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 30, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 6 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="说明">说明</h1>
+<p><a class="link" href="https://github.com/96bearli/proxyListTest"  target="_blank" rel="noopener"
+    >Github仓库访问</a>，请多多star！</p>
+<ul>
+<li>从github拉取proxylist，<strong>本地验活</strong>后保存为txt文档</li>
+<li>使用<strong>多线程</strong>加快速度</li>
+<li><strong>type可选</strong></li>
+<li><strong>自动去重</strong></li>
+<li>原始地址访问失败后尝试<strong>自动更换镜像</strong>地址</li>
+<li>验证方法：requests.get(url=&quot;<a class="link" href="http://icanhazip.com/"  target="_blank" rel="noopener"
+    >http://icanhazip.com/</a>&quot;, proxies=Proxy)</li>
+<li>验证方法：采用双重验证<strong>telnet+req</strong>获取高质量代理</li>
+</ul>
+<h1 id="添加源">添加源</h1>
+<h2 id="注意">注意</h2>
+<p>对于文档的要求:</p>
+<ol>
+<li>一行一条，可以有无效行</li>
+<li>需要utf-8编码才能使通用提取函数生效（大概）</li>
+</ol>
+<h2 id="模板">模板</h2>
+<p>添加于代码中函数定义前</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 获取代理信息的格式模板</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 文档url+模式+匹配ip规则+匹配端口规则+匹配模式规则</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 当type不固定时对应&#34;mix&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 默认使用的telnet方法，有需求可以自行修改checkProxy()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># raw2_http</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 62.171.170.82:3128</span>
+</span></span><span class="line"><span class="cl"><span class="n">raw</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s1">&#39;https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;http&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;findIp&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+?\.\d+?\.\d+?\.\d+?):&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;findPort&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;:(\d+?)\n&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;findType&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">raws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="免责">免责</h1>
+<p>本项目因为兴趣而生，开源仅供测试。</p>
+<h1 id="当前版本源码">当前版本源码</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span><span class="lnt">242
+</span><span class="lnt">243
+</span><span class="lnt">244
+</span><span class="lnt">245
+</span><span class="lnt">246
+</span><span class="lnt">247
+</span><span class="lnt">248
+</span><span class="lnt">249
+</span><span class="lnt">250
+</span><span class="lnt">251
+</span><span class="lnt">252
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- codeing = utf-8 -*-</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># @Time : 2021/1/26 22:25</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># @Author : 96bearli</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># @File : main.py</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># @Software : PyCharm</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">思路       从github拉取proxylist，本地验活后保存为txt文档
+</span></span></span><span class="line"><span class="cl"><span class="s1">文档包含    http/https,ip:port,ping
+</span></span></span><span class="line"><span class="cl"><span class="s1">验证方法    requests.get(url=&#34;http://icanhazip.com/&#34;, proxies=Proxy)&gt;划掉但仍可选，并发应减少到个位
+</span></span></span><span class="line"><span class="cl"><span class="s1">          默认 telnet验证
+</span></span></span><span class="line"><span class="cl"><span class="s1">使用多线程加快速度
+</span></span></span><span class="line"><span class="cl"><span class="s1">type可选 在checkProxy()    if &#34;http&#34; in type:  处修改
+</span></span></span><span class="line"><span class="cl"><span class="s1">即将增加的功能 去重&gt;已增加
+</span></span></span><span class="line"><span class="cl"><span class="s1">更改：采用双重验证方法获取高质量稳定代理（比如2500筛选100）
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">telnetlib</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">queue</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">threading</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取代理信息的格式模板</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 文档要求: 1.一行一条，可以有无效行</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#          2.需要utf-8编码才能使通用提取函数生效（大概）</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 文档url+模式+匹配ip规则+匹配端口规则+匹配模式规则</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 当type不固定时对应&#34;mix&#34;,且默认使用的的telnet不支持ss4/ss5</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 有需求可以自行修改checkProxy()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># raw = {&#34;url&#34;: &#39;https://raw.githubusercontent.com/fate0/proxylist/master/proxy.list&#39;,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#        &#34;type&#34;: &#34;mix&#34;,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#        &#34;findIp&#34;: re.compile(r&#39;&#34;host&#34;: &#34;(.+?)&#34;&#39;),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#        &#34;findPort&#34;: re.compile(r&#39;&#34;port&#34;: (\d+?),&#39;),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#        &#34;findType&#34;: re.compile(r&#39;&#34;type&#34;: &#34;(.+?)&#34;&#39;)}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># raws.append(raw)</span>
+</span></span><span class="line"><span class="cl"><span class="n">raws</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># raw1_mix</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># {&#34;host&#34;: &#34;3.211.65.185&#34;, &#34;from&#34;: &#34;proxylist&#34;, &#34;country&#34;: &#34;US&#34;, &#34;port&#34;: 80, &#34;response_time&#34;: 0.82, &#34;export_address&#34;: [&#34;35.193.184.18&#34;, &#34;192.168.99.102&#34;, &#34;54.226.33.176&#34;], &#34;type&#34;: &#34;http&#34;, &#34;anonymity&#34;: &#34;high_anonymous&#34;}</span>
+</span></span><span class="line"><span class="cl"><span class="n">raw</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s1">&#39;https://raw.githubusercontent.com/fate0/proxylist/master/proxy.list&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;mix&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findIp&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&#34;host&#34;: &#34;(.+?)&#34;&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findPort&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&#34;port&#34;: (\d+?),&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findType&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&#34;type&#34;: &#34;(.+?)&#34;&#39;</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"><span class="n">raws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># raw2_http</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 62.171.170.82:3128</span>
+</span></span><span class="line"><span class="cl"><span class="n">raw</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s1">&#39;https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;http&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findIp&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+?\.\d+?\.\d+?\.\d+?):&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findPort&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;:(\d+?)\n&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findType&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">raws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># raw3_http</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 62.171.170.82:3128</span>
+</span></span><span class="line"><span class="cl"><span class="n">raw</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s1">&#39;https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;http&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findIp&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+?\.\d+?\.\d+?\.\d+?):&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findPort&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;:(\d+?)\n&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findType&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">raws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># raw4_http</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 178.212.54.137:8080</span>
+</span></span><span class="line"><span class="cl"><span class="n">raw</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s1">&#39;https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;http&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findIp&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+?\.\d+?\.\d+?\.\d+?):&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findPort&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;:(\d+?)\n&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findType&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">raws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># raw5_https</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 103.21.161.105:6667</span>
+</span></span><span class="line"><span class="cl"><span class="n">raw</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s1">&#39;https://raw.githubusercontent.com/hookzof/socks5_list/master/proxy.txt&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;https&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findIp&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+?\.\d+?\.\d+?\.\d+?):&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findPort&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;:(\d+?)\r\n&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findType&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">raws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># raw6_HTTP/HTTPS</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 203.202.245.58:80</span>
+</span></span><span class="line"><span class="cl"><span class="n">raw</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s1">&#39;https://sunny9577.github.io/proxy-scraper/proxies.txt&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;https&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findIp&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+?\.\d+?\.\d+?\.\d+?):&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findPort&#34;</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;:(\d+?)\n&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;findType&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">raws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 镜像，按需替换链接</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 内地cdn</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># proxyListUrl = &#39;https://raw.sevencdn.com/fate0/proxylist/master/proxy.list&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># proxyListUrl = &#39;https://cdn.jsdelivr.net/gh/fate0/proxylist@master/proxy.list&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 香港cdn</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># proxyListUrl = &#39;https://raw.githubusercontent.com/fate0/proxylist/master/proxy.list&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">checkProxy</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 当队列不为空时</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="ow">not</span> <span class="n">checkDataQueue</span><span class="o">.</span><span class="n">empty</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 从队列读取一条数据</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 读取是阻塞操作</span>
+</span></span><span class="line"><span class="cl">        <span class="n">proxies</span> <span class="o">=</span> <span class="n">checkDataQueue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ip</span> <span class="o">=</span> <span class="n">proxies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">port</span> <span class="o">=</span> <span class="n">proxies</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">type</span> <span class="o">=</span> <span class="n">proxies</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Proxy</span> <span class="o">=</span> <span class="nb">type</span> <span class="o">+</span> <span class="s1">&#39;://&#39;</span> <span class="o">+</span> <span class="n">ip</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="n">port</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">Proxy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 尝试使用telnet和req结合的双重验证</span>
+</span></span><span class="line"><span class="cl">            <span class="n">telnetlib</span><span class="o">.</span><span class="n">Telnet</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 在这里选择type，in筛选http/https。not in 或其他</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># if &#34;http&#34; in type:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&#34;http&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">rep</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&#34;http://icanhazip.com/&#34;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="p">{</span><span class="nb">type</span><span class="p">:</span> <span class="n">Proxy</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">                <span class="n">repIp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">rep</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">repIp</span> <span class="ow">in</span> <span class="n">Proxy</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;双重验证后找到一条较高质量的代理,</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">Proxy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 申请获取锁，此过程为阻塞等待状态，直到获取锁完毕</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">mutex_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./proxy.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;a+&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">Proxy</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">mutex_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 纯requests方法</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># rep = requests.get(url=&#34;http://icanhazip.com/&#34;, timeout=3, proxies={type: Proxy})</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># repIp = rep.text.replace(&#34;\n&#34;, &#34;&#34;)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># if repIp == ip:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#     if type == &#34;http&#34;:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#         print(&#34;找到一条有效代理 %s&#34; % Proxy)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#         # 申请获取锁，此过程为阻塞等待状态，直到获取锁完毕</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#         mutex_lock.acquire()</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#         with open(&#39;./proxy.txt&#39;, &#39;a+&#39;, encoding=&#39;utf-8&#39;) as f:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#             f.write(Proxy + &#34;\n&#34;)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#         mutex_lock.release()</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#     else:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#         print(&#34;无效&#34;)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 纯telnet的方式</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># telnetlib.Telnet(ip, port=port, timeout=3)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># # 在这里选择type，in筛选http/https。not in 其他，并自行修改检查方式为requests</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># # if &#34;http&#34; in type:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># if type == &#34;http&#34;:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#     print(&#34;找到一条有效代理 %s&#34; % Proxy)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#     # 申请获取锁，此过程为阻塞等待状态，直到获取锁完毕</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#     mutex_lock.acquire()</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#     with open(&#39;./proxy.txt&#39;, &#39;a+&#39;, encoding=&#39;utf-8&#39;) as f:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#         f.write(Proxy + &#34;\n&#34;)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#     mutex_lock.release()</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># else:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#     print(&#34;无效&#34;)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">proxyError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">proxyError</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;无效&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">reWriteList</span><span class="p">(</span><span class="n">aList</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 刚开始想直接list(set(list)),报错列表不能哈希，查了一下二维列表需要先转元组</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">aList</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">aList</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">getProxyList</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">allList</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">raws</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;-&#34;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;正在尝试获取源raw</span><span class="si">%i</span><span class="s2">提供的列表&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">raws</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">],</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">rawError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">rawError</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">try</span><span class="p">:</span>  <span class="c1"># 尝试自动更换镜像</span>
+</span></span><span class="line"><span class="cl">                <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;raw.githubusercontent.com&#34;</span><span class="p">,</span> <span class="s2">&#34;raw.sevencdn.com&#34;</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;raw</span><span class="si">%i</span><span class="s2">原始地址尝试失败，自动更换镜像地址成功&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">raws</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">rawError2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="n">rawError2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;raw</span><span class="si">%i</span><span class="s2">_url已失效，请检查，可尝试自行更换，按回车继续&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">raws</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 分割双保险</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;尝试.split(&#39;</span><span class="se">\\</span><span class="s2">n&#39;)分割&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># \n分割</span>
+</span></span><span class="line"><span class="cl">            <span class="n">theList</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 用re正则提取单条数据</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;尝试正则分割&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">findLine</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;.+?\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">theList</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">findLine</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 提取数据</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">raw</span><span class="p">[</span><span class="s2">&#34;type&#34;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&#34;mix&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">theList</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ip</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s2">&#34;findIp&#34;</span><span class="p">],</span> <span class="n">line</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">port</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s2">&#34;findPort&#34;</span><span class="p">],</span> <span class="n">line</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="nb">type</span> <span class="o">=</span> <span class="n">raw</span><span class="p">[</span><span class="s2">&#34;type&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="nb">type</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">allList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">reError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="nb">print</span><span class="p">(</span><span class="n">reError</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">theList</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ip</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s2">&#34;findIp&#34;</span><span class="p">],</span> <span class="n">line</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">port</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s2">&#34;findPort&#34;</span><span class="p">],</span> <span class="n">line</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="nb">type</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s2">&#34;findType&#34;</span><span class="p">],</span> <span class="n">line</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="nb">type</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">allList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">reError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="nb">print</span><span class="p">(</span><span class="n">reError</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 去重+统计</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+</span></span><span class="line"><span class="cl">    <span class="n">before</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">allList</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">before</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;还是好好检查一下源的配置吧&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">allList</span> <span class="o">=</span> <span class="n">reWriteList</span><span class="p">(</span><span class="n">allList</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">after</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">allList</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;-&#34;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;本次运行获取代理数据</span><span class="si">%i</span><span class="s2">条，去重复后剩余</span><span class="si">%i</span><span class="s2">条&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;3秒后自动开始多进程验活&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;-&#34;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 测试点</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># with open(&#34;./cache&#34;, &#34;w&#34;) as f:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#     for all in allList:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#         for a in all:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#             f.write(a)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#         f.write(&#34;\n&#34;)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">allList</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 先拿到要处理的代理数据列表</span>
+</span></span><span class="line"><span class="cl">    <span class="n">proxiesList</span> <span class="o">=</span> <span class="n">getProxyList</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 创建空文件./proxy.txt</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./proxy.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 将所有代理数据列表放入先进先出FIFO队列中</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 队列的写入和读取都是阻塞的，故在多线程情况下不会乱</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 在不使用框架的前提下，引入多线程，提高爬取效率</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 创建一个队列</span>
+</span></span><span class="line"><span class="cl">    <span class="n">checkDataQueue</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">proxiesList</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 写入代理数据到队列</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">proxy</span> <span class="ow">in</span> <span class="n">proxiesList</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># proxiesList[i]也是list类型，分别存入队列</span>
+</span></span><span class="line"><span class="cl">        <span class="n">checkDataQueue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">proxy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">proxiesList</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 创建一个线程锁，防止多线程写入文件时发生错乱</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mutex_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 线程数为500，在一定范围内，线程数越多，速度越快。</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 小心点，别变成ddos把验证服务器干死</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">checkProxy</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;LoopThread&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/vmware%E7%BC%A9%E5%B0%8F%E7%A3%81%E7%9B%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">VmWare缩小磁盘占用大小</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E4%BB%8Emysql%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7excel%E8%A1%A8%E6%A0%BC%E7%AD%89%E5%A4%8D%E5%88%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%A0%87%E5%87%86%E7%9A%84markdown%E8%A1%A8%E6%A0%BC/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">从mysql可视化工具、excel表格等复制的数据转化为标准的markdown表格</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%A2%9E%E5%8A%A0%E5%8F%B3%E9%94%AE%E9%80%89%E9%A1%B9%E9%80%9A%E8%BF%87pycharm%E6%89%93%E5%BC%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">增加右键选项“通过Pycharm打开”</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/linux%E5%B7%A5%E5%85%B7screen%E7%9A%84%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">linux工具screen的使用</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E7%8E%A9%E5%AE%A2%E4%BA%91armbian%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95-docker%E7%9B%AE%E5%BD%95%E8%BD%AC%E7%A7%BB/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">玩客云（Armbian）空间不足解决办法-docker目录转移</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Bear
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
