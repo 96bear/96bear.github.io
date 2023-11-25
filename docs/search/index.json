@@ -1,1 +1,1 @@
-[]
+[{"content":"发布博客流程 作为备忘\n1 hugo new post/hugo站点起步.md 在content/post下生成一份文档，完成编辑\n1 hugo -d docs 生成静态页面文件到docs目录\n1 2 3 git add . git commit -m \u0026#34;msg\u0026#34; git push ","date":"2023-11-25T17:07:27+08:00","permalink":"https://96bearli.github.io/p/hugo%E7%AB%99%E7%82%B9%E8%B5%B7%E6%AD%A5/","title":"Hugo站点起步"}]
