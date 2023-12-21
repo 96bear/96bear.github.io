@@ -7,7 +7,35 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Bear</copyright>
-        <lastBuildDate>Sat, 25 Nov 2023 17:07:27 +0800</lastBuildDate><atom:link href="https://96bear.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 21 Dec 2023 18:04:10 +0800</lastBuildDate><atom:link href="https://96bear.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Vmware官方下载地址备忘</title>
+        <link>https://96bear.github.io/p/vmware%E5%AE%98%E6%96%B9%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E5%A4%87%E5%BF%98/</link>
+        <pubDate>Thu, 21 Dec 2023 18:04:10 +0800</pubDate>
+        
+        <guid>https://96bear.github.io/p/vmware%E5%AE%98%E6%96%B9%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E5%A4%87%E5%BF%98/</guid>
+        <description>&lt;h1 id=&#34;官方下载&#34;&gt;官方下载&lt;/h1&gt;
+&lt;p&gt;10.0.7：https://download3.vmware.com/software/wkst/file/VMware-workstation-full-10.0.7-2844087.exe&lt;/p&gt;
+&lt;p&gt;12.5.9：https://download3.vmware.com/software/wkst/file/VMware-workstation-full-12.5.9-7535481.exe&lt;/p&gt;
+&lt;p&gt;14.1.5：http://download3.vmware.com/software/wkst/file/VMware-workstation-full-14.1.5-10950780.exe&lt;/p&gt;
+&lt;p&gt;15.5.1：https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.1-15018445.exe&lt;/p&gt;
+&lt;p&gt;15.5.2 : &lt;a class=&#34;link&#34; href=&#34;https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.2-15785246.exe&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.2-15785246.exe&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;16.0.0 : &lt;a class=&#34;link&#34; href=&#34;https://download3.vmware.com/software/wkst/file/VMware-workstation-full-16.0.0-16894299.exe&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://download3.vmware.com/software/wkst/file/VMware-workstation-full-16.0.0-16894299.exe&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;16.1.0 : &lt;a class=&#34;link&#34; href=&#34;https://download3.vmware.com/software/wkst/file/VMware-workstation-full-16.1.0-117198959.exe&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://download3.vmware.com/software/wkst/file/VMware-workstation-full-16.1.0-117198959.exe&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;16.1.2 : &lt;a class=&#34;link&#34; href=&#34;https://download3.vmware.com/software/wkst/file/VMware-workstation-full-16.1.2-17966106.exe&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://download3.vmware.com/software/wkst/file/VMware-workstation-full-16.1.2-17966106.exe&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;各版本序列号&#34;&gt;各版本序列号&lt;/h1&gt;
+&lt;p&gt;10.x：1Z0G9-67285-FZG78-ZL3Q2-234JG&lt;/p&gt;
+&lt;p&gt;11.x：YG74R-86G1M-M8DLP-XEQNT-XAHW2&lt;/p&gt;
+&lt;p&gt;12.x：ZC3TK-63GE6-481JY-WWW5T-Z7ATA&lt;/p&gt;
+&lt;p&gt;14.x：AU108-FLF9P-H8EJZ-7XMQ9-XG0U8&lt;/p&gt;
+&lt;p&gt;15.x：YZ510-0LX8J-0815Z-YGMEE-ZAHA0&lt;/p&gt;
+&lt;p&gt;16.x：YF390-0HF8P-M81RQ-2DXQE-M2UT6&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Hugo站点起步</title>
         <link>https://96bear.github.io/p/hugo%E7%AB%99%E7%82%B9%E8%B5%B7%E6%AD%A5/</link>
         <pubDate>Sat, 25 Nov 2023 17:07:27 +0800</pubDate>
@@ -16094,9 +16122,7 @@ host -l company.com | cut -d -f 4 | nmap -v -iL        -
 	
 	
 &gt;&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;3.&lt;/p&gt;
 &lt;p&gt;点击右侧，点击左上角菜单，选择内部储存，选一个自己能找到的目录&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/IMG_20190904_124538-576x1024.jpg&#34;
 	
@@ -16106,9 +16132,7 @@ host -l company.com | cut -d -f 4 | nmap -v -iL        -
 	
 	
 &gt;&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;4.&lt;/p&gt;
 &lt;p&gt;长摁bask.apk移动&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/Screenshot_2019-09-04-12-52-24-646_bin.mt_.plus_-576x1024.jpg&#34;
 	
@@ -16127,9 +16151,7 @@ host -l company.com | cut -d -f 4 | nmap -v -iL        -
 	
 	
 &gt;&lt;/p&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;5.&lt;/p&gt;
 &lt;p&gt;依次点击base.apk&lt;/p&gt;
 &lt;p&gt;查看&lt;/p&gt;
 &lt;p&gt;右上角搜索&lt;/p&gt;
@@ -16142,9 +16164,7 @@ host -l company.com | cut -d -f 4 | nmap -v -iL        -
 	
 	
 &gt;&lt;/p&gt;
-&lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;6.&lt;/p&gt;
 &lt;p&gt;依次点击piy.xml→piy.xml→反编译（登录功能）&lt;/p&gt;
 &lt;p&gt;如图修改line29&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/IMG_20190904_130523-576x1024.jpg&#34;
@@ -16163,9 +16183,7 @@ host -l company.com | cut -d -f 4 | nmap -v -iL        -
 	
 	
 &gt;&lt;/p&gt;
-&lt;ol start=&#34;7&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;7.&lt;/p&gt;
 &lt;p&gt;返回键 保存并退出 确定&lt;/p&gt;
 &lt;p&gt;最后一步把刚才目录里修改过得文件移动回来&lt;/p&gt;
 &lt;p&gt;8.找个群试一下，如果可以在画图红包主题处输入文字就成功了（本文来自bear962464.cn）&lt;/p&gt;
