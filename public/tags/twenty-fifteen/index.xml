@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>twenty-fifteen on Bear</title>
+        <link>https://96bear.github.io/tags/twenty-fifteen/</link>
+        <description>Recent content in twenty-fifteen on Bear</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Bear</copyright>
+        <lastBuildDate>Fri, 13 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://96bear.github.io/tags/twenty-fifteen/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>让WordPress首页显示文章摘要</title>
+        <link>https://96bear.github.io/p/%E8%AE%A9wordpress%E9%A6%96%E9%A1%B5%E6%98%BE%E7%A4%BA%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81/</link>
+        <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/%E8%AE%A9wordpress%E9%A6%96%E9%A1%B5%E6%98%BE%E7%A4%BA%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81/</guid>
+        <description>&lt;p&gt;wordpress首页显示全文不但拖慢了加载速度，还覆盖了好的文章，浪费页面空间。之前为了这个解决问题查了不少资料。终于在&lt;a class=&#34;link&#34; href=&#34;https://www.iteblog.com/archives/21.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;过往记忆该篇文章&lt;/a&gt;（此处致谢！）的帮助下完成了这一操作，但部分内容因为&lt;strong&gt;主题不同略有区别。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;原教程使用的 主题Twenty Twelve ，我是用的Twenty Fifteen。&lt;/p&gt;
+&lt;p&gt;下面贴出原教程和对应的改动。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;原教程：&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;到wordpress后台，依次选择 &lt;strong&gt;外观&amp;ndash;&amp;gt;编辑&amp;ndash;&amp;gt;选择右边的index.php文件&lt;/strong&gt;，在里面可以看到语句&lt;/p&gt;
+&lt;table class=&#34;wp-block-table&#34;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;&amp;lt;?php &lt;/code&gt;&lt;code&gt;while&lt;/code&gt; &lt;code&gt;( have_posts() ) : the_post(); ?&amp;gt;&lt;/code&gt;&lt;code&gt;&amp;lt;?php get_template_part( &lt;/code&gt;&lt;code&gt;&#39;content&#39;&lt;/code&gt;&lt;code&gt;, get_post_format() ); ?&amp;gt;&lt;/code&gt;&lt;code&gt;&amp;lt;?php &lt;/code&gt;&lt;code&gt;endwhile&lt;/code&gt;&lt;code&gt;; ?&amp;gt;&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;可以看出，index.php是嵌套一个 content.php 的文件用于专门显示文章的内容，这就是为什么在首页老是显示文章全文。那么，打开content.php文件找到&lt;/p&gt;
+&lt;table class=&#34;wp-block-table&#34;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;&amp;lt;?php &lt;/code&gt;&lt;code&gt;the_content( __( &lt;/code&gt;&lt;code&gt;&#39;Continue reading &amp;lt;span&amp;gt;&amp;amp;rarr;&amp;lt;/span&amp;gt;&#39;&lt;/code&gt;&lt;code&gt;, &lt;/code&gt;&lt;code&gt;&#39;twentyeleven&#39;&lt;/code&gt; &lt;code&gt;) ); &lt;/code&gt;&lt;code&gt;?&amp;gt;&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;将它修改为&lt;/p&gt;
+&lt;table class=&#34;wp-block-table&#34;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;&amp;lt;?php if(!is_single()) {the_excerpt();} else&lt;/code&gt; &lt;code&gt;{the_content(__(&#39;(more…)&#39;));} ?&amp;gt;&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;改动&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;可以看到原教程分成三步&lt;/p&gt;
+&lt;p&gt;第一步经验证完全符合，&lt;/p&gt;
+&lt;p&gt;第二步第三步：&lt;/p&gt;
+&lt;p&gt;找到line32&amp;ndash;line37&lt;/p&gt;
+&lt;table class=&#34;wp-block-table&#34;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;the_content(&lt;br&gt;sprintf(&lt;br&gt;__( &#39;Continue reading %s&#39;, &#39;twentyfifteen&#39; ),&lt;br&gt;the_title( &#39;&amp;lt;span class=&#34;screen-reader-text&#34;&amp;gt;&#39;, &#39;&amp;lt;/span&amp;gt;&#39;, false )&lt;br&gt;)&lt;br&gt;);&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;替换为：&lt;/p&gt;
+&lt;table class=&#34;wp-block-table&#34;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;if(!is_single()) {the_excerpt();} else&lt;/code&gt; &lt;code&gt;{the_content(__(&#39;(more…)&#39;));}&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;OK，over。其他主题照情况来改就行&lt;/p&gt;
+&lt;p&gt;友情提示，修改前最好做个备份避免网站崩溃。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/get.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://bear962464.cn/2019/09/07/370/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://bear962464.cn/2019/09/07/370/&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,7 +1,7 @@
 +++
 title = 'Vmware官方下载地址备忘'
 date = 2023-12-21T18:04:10+08:00
-draft = true
+draft = false
 +++
 
 # 官方下载

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>登录 on Bear</title>
+        <link>https://96bear.github.io/tags/%E7%99%BB%E5%BD%95/</link>
+        <description>Recent content in 登录 on Bear</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Bear</copyright>
+        <lastBuildDate>Sun, 15 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://96bear.github.io/tags/%E7%99%BB%E5%BD%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>wordpress之QQ微信微博登录</title>
+        <link>https://96bear.github.io/p/wordpress%E4%B9%8Bqq%E5%BE%AE%E4%BF%A1%E5%BE%AE%E5%8D%9A%E7%99%BB%E5%BD%95/</link>
+        <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/wordpress%E4%B9%8Bqq%E5%BE%AE%E4%BF%A1%E5%BE%AE%E5%8D%9A%E7%99%BB%E5%BD%95/</guid>
+        <description>&lt;p&gt;wordpress插件：Wechat Social&lt;/p&gt;
+&lt;p&gt;个人博客的社会化登录可以快速接入订阅者的生活。我们可以通过这个插件达成这一功能。&lt;/p&gt;
+&lt;p&gt;微信，QQ，钉钉，微博，手机注册登录，支持账户绑定解绑，完善资料，全新注册登录页面，找回密码页面，支持微信登录直接关注公众号，微信高级扩展不需要微信开放平台认证。&lt;br&gt;
+特色：个人用户免签约代理登录功能，启用代理登录扩展一键实现微信，微博，QQ登录&lt;br&gt;
+插件采用附加组件模式，每一个功能都是一个扩展，方便用户根据需求选择需要的功能。&lt;/p&gt;
+&lt;p&gt;下载后可以免费使用社会化登录功能（有广告），付费后可无广告，博主尝试时需要38每年&lt;/p&gt;
+&lt;p&gt;另附有一些实用的小功能&lt;/p&gt;
+&lt;p&gt;包括登录页背景，图形验证码，社交分享，自带SMTP（邮件设置）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/image-5.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/image-6.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://bear962464.cn/2019/09/14/493/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://bear962464.cn/2019/09/14/493/&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>cpp on Bear</title>
+        <link>https://96bear.github.io/categories/cpp/</link>
+        <description>Recent content in cpp on Bear</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Bear</copyright>
+        <lastBuildDate>Fri, 20 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://96bear.github.io/categories/cpp/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>解一元二次方程</title>
+        <link>https://96bear.github.io/p/%E8%A7%A3%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B/</link>
+        <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/%E8%A7%A3%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/20200320190418.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;#include&amp;lt;stdio.h&amp;gt;&lt;br&gt;
+#include&amp;lt;math.h&amp;gt;&lt;br&gt;
+int main()&lt;br&gt;
+{&lt;br&gt;
+    float a,b,c;//一元二次方程三系数&lt;br&gt;
+    if(scanf(&amp;quot;%f %f %f&amp;quot;,&amp;amp;a,&amp;amp;b,&amp;amp;c)!=3)&lt;br&gt;
+    {&lt;br&gt;
+        printf(&amp;ldquo;input error!&amp;rdquo;);&lt;br&gt;
+        return 0;&lt;br&gt;
+        }&lt;br&gt;
+    if(a==0&amp;amp;&amp;amp;b==0)//a,b都为0和abc都为零&lt;br&gt;
+    {&lt;br&gt;
+        if(c==0)&lt;br&gt;
+        printf(&amp;ldquo;Zero Equation&amp;rdquo;);&lt;br&gt;
+        else&lt;br&gt;
+        printf(&amp;ldquo;Not An Equation&amp;rdquo;);&lt;br&gt;
+        return 0;&lt;br&gt;
+    }&lt;br&gt;
+    if(a==0)//当a=0且b!=0,一元一次方程&lt;br&gt;
+    {&lt;br&gt;
+        printf(&amp;quot;%0.2f&amp;quot;,-c/b);&lt;br&gt;
+        return 0;&lt;br&gt;
+    }&lt;br&gt;
+    float Delta=b*b-4*a*c;//定义Delta&lt;br&gt;
+    if(Delta&amp;lt;0)//三种情况之1:两虚根&lt;br&gt;
+    {&lt;br&gt;
+if(b==0)//b为0时无实部&lt;br&gt;
+    printf(&amp;ldquo;0.00+%0.2fi\n0.00-%0.2fi&amp;rdquo;,sqrt(-Delta)/(2*a),sqrt(-Delta)/(2*a));&lt;br&gt;
+    else&lt;br&gt;
+    printf(&amp;quot;%0.2f+%0.2fi\n%0.2f-%0.2fi&amp;quot;,(-b) / (2 * a),sqrt(-Delta) / (2 * a),(-b) / (2 * a),sqrt(-Delta) / (2 * a));&lt;br&gt;
+}&lt;br&gt;
+else if(Delta==0)//三种情况之2:两相同实根&lt;br&gt;
+    printf(&amp;quot;%0.2f&amp;quot;,-b/(2*a));&lt;br&gt;
+    else//三种情况之3:两不同实根&lt;br&gt;
+    printf(&amp;quot;%0.2f\n%0.2f&amp;quot;,(-b+sqrt(b*b-4*a*c))/(2*a),(-b-sqrt(b*b-4*a*c))/(2*a));&lt;br&gt;
+    return 0 ;&lt;br&gt;
+}&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>两数计算</title>
+        <link>https://96bear.github.io/p/%E4%B8%A4%E6%95%B0%E8%AE%A1%E7%AE%97/</link>
+        <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/%E4%B8%A4%E6%95%B0%E8%AE%A1%E7%AE%97/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/20200320190229.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#include&amp;lt;stdio.h&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;int main()
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    int a,b,r;//数1 数2 result 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    char c;//符号 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    if(scanf(&amp;#34;%d %c %d&amp;#34;,&amp;amp;a,&amp;amp;c,&amp;amp;b)!=3)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       printf(&amp;#34;ERROR&amp;#34;);
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       goto end;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    switch(c)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       case &amp;#39;+&amp;#39;:r=a+b;break;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       case &amp;#39;-&amp;#39;:r=a-b;break;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       case &amp;#39;*&amp;#39;:r=a*b;break;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       case &amp;#39;/&amp;#39;:r=a/b;break;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       case &amp;#39;%&amp;#39;:r=a%b;break;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       default :printf(&amp;#34;ERROR&amp;#34;);goto end;;break;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    printf(&amp;#34;%d&amp;#34;,r);
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;end:       //标记结束 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    return 0;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;} 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>上税</title>
+        <link>https://96bear.github.io/p/%E4%B8%8A%E7%A8%8E/</link>
+        <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/%E4%B8%8A%E7%A8%8E/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/20200320190055.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt;&lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tax&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//依次为工资,税, 上税部分 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%f&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//给工资赋值,并判断输入是否正确 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;input error!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pay&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1600&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pay&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1600&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//通过if else判断pay所在区间 并计算对应税 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;tax&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pay&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;tax&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.05&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pay&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;tax&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pay&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;tax&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.15&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;tax&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%.2f&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tax&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//输出两位小数的税 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>10002</title>
+        <link>https://96bear.github.io/p/10002/</link>
+        <pubDate>Fri, 30 Aug 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/10002/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABEIAAABKCAYAAAC/3vEHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAB/jSURBVHhe7Z3bz25XVcb9V7zwggtjjDGGBKNEkyaNNRpDUlJCQwm1LWlpbEk0GiRN1RAEETSaphikYKGC4qlpbUFoK6igKbZcUGhBbLsP/brbvbu727vX/bx&amp;#43;z8fYY48551in913rW8/FL3t/6zDXmOM453hPP/Laa69thBBCCCGEEEIIIdaAGiFCCCGEEEIIIYRYDWqECCGEEEIIIYQQYjWoESKEEEIIIYQQQojVoEaIEEIIIYQQQgghVoMaIUIIIYQQQgghhFgNaoQIIYQQQgghhBBiNagRIoQQQgghhBBCiNWgRogQQgghhBBCCCFWgxohQgghhBBCCCGEWA1qhAghhBBCCCGEEGI1qBEihBBCCCGEEEKI1aBGiBBCCCGEEEIIIVaDGiFCCCGEEEIIIYRYDWqECCGEEEIIIYQQYjWoESKEEEIIIYQQQojVoEaIEEIIIYQQQgghVoMaIUIIIYQQQgghhFgNaoQIIYQQQgghhBBiNagRIoQQQgghhBBCiNWgRogQQgghhBBCCCFWgxohQgghhBBCCCGEWA1qhAghhBBCCCGEEGI1qBEihBBCCCGEEEKI1aBGiBBCCCGEEEKInfP5v/nC5g0//pObJ7/1rfC8EFOhRogQQgghhBBCiJ3zR3/8sc1b33bt5uDgxfC8EFOhRogQQsyECxcubM6ePbs5c&amp;#43;ZMb1555ZVwbLEbXn311c1LL70U2mbuQG7IH81rn7z&amp;#43;&amp;#43;uubc&amp;#43;fOhTIvAciOOURzE8vgq1/7t823n3oqPNcVjLWkV77xav21171rVK6/8d2L2PSOaXfU5jf/4hWbH/2xN2x56OEvhtdFwAa87yd&amp;#43;6mdW0TBYQpxozbZ8Jm&amp;#43;E/Pt/fL1zwAsh5s0z3/ve5qff&amp;#43;LOb33nf&amp;#43;8PzgLF/9198IjwvLgXF9Lnnnts8&amp;#43;&amp;#43;yzgzl9&amp;#43;vS2QEfPEdOAje6pU6dCeywNzGMuG3csEiMZl4gWvMvkIx/9k80dv/cH4bk&amp;#43;wA9uuOnmxayLWcvB2669bvP008&amp;#43;k&amp;#43;M53vrt55NHHNp&amp;#43;973Pb&amp;#43;XIMMvf5T2H3K6/61UFNjDHGWApTxskY61Ot2Y4Hs2yE2KTrQScUDnPze34jPO/ZZ6LlZpGBhr/f&amp;#43;KafH9ThhG7W0g320C9QiM&amp;#43;eOxdesw/Qqa/ZBHLv47OPeG6tUWHJNDYIXjFG/NXmxGvG9lW&amp;#43;KtI1rseyEQrzFVdeddl1Q&amp;#43;eLcVkM8f/omiwvv/zytjhjrOj8PsHbX21&amp;#43;trT0P3cbsgkC/UfnlwLkxzwwn&amp;#43;j8LoFNKMv58&amp;#43;fDa5YA5kH/wP&amp;#43;jawB8E68Y13ywbw60sJbuoy71hTJz3sgl2frmQb171w3v3o6Ht&amp;#43;O38s4Ua44x1oO7hH4HhmweH/vXr27XGhgnsh&amp;#43;aDziHBgRihX/DV&amp;#43;/59L2XXT8VU9gd8Z1pYtRqUXaMpUB/KMXhVHGC/DEk/8EOc1mzDakJU9Uc3FPSL/17Lnu52TZCIgXieGSsllJpaMgxlC6LZG4uWTR&amp;#43;8IP/3dz7mfu24/QtJLgfY2YD2BYvD/RFeVp0mfcUeBt2DfjaBqxG9Bz4oS3g0LHVjz&amp;#43;PZ&amp;#43;9Df5xzxte6NEJausRcP/HJe8JzFspVGs/r3vpAS86pbPT97//P0QLayjc0saMAnjx5MjzXB25mhxboLNkcm/EvsiQb4l7oGx&amp;#43;BiM4vDfoP5hWd3xVoHpw4cSI8t0Sef/75aoMJPlyr7YyzLnHkQdx0jcUW2fi3dF0DUW7ELPwSb5tHzcrEvMXWOq6PSrrgtdE6YAx8TpszzI/Q15ANJOBYfu7QNxogsDWe8c7rb9x86V&amp;#43;&amp;#43;vD23S11NZXfESaaJQV&amp;#43;P9JwdYwlAz/iIFOoN/KGUE8a2PfPVkI34nNZszGN9/HWKmsP4Lum3dX7XHItGCA3VtbCWjAHHGMNATKZerpJObKEZSiR/tFHIJJg5FGvIjnnd/8CDW1tPJQ99qaRDwGYUE4PVD23Lz7/SpmMuOrtAvbXij77aktOOV7qHOvCNjlJ84rzVdcnfcB2OY2HUmtPUNvJzGprY8WrAiy&amp;#43;O5894iyWKKj5/Gp3fJdRV15hdkg25iInOLRXMB/OKzu0KyDBmXOybg4ODy/yEfgdfjLBxQ78v0fLd1v0eG0&amp;#43;Iv&amp;#43;gaEOV2PqvL2q9GNN6QuH/gwYeO9B7J32fsrvRdu&amp;#43;4L1nzorGs&amp;#43;91C/1p7wMaz7I1vj2NBnZpjS7rB3polBPUcfy8mOsQRob8y39q6PvnFi/XUMrE/Mac1Wy80exNTUNYd6x7OYb7tiY39qBjVCWgrqgm181MaNEqFVuj3egs7gDQnD9d3QWChXNnjHSMClOQHMy&amp;#43;vPbi7wd6RLf82uYZBTj5Rx7EJlk0nLl2xRpn7QHUaytvd29YGxsQmvNqeMTjFP36BkgbL3YQPrC3htfBtvpRhgTuAcIl/2TG0jvGUXi2n8n3romzem2PDNYRPJIljyK9j71tveW1wALcWGB8EGd&amp;#43;lgPphXdG5XzMGHxwRz8X5Sq9n0efg/r4vyeG0Mglis5XfCXMvn&amp;#43;vOZZwE8r/ZKY1co15Bayhi3OkXuiK71NWcqMrVsTlAvtbyeBWNFfgSd&amp;#43;ONZ/x3KlHaH/w1tYowxxtxAnsvkkzHihGuF1vNaTFGb&amp;#43;o4J/XXx2alrjh3DHifZGrIrJn1HiE2YXQoi7mu9I4TOzPEjWgWzZIwoCXvs3MYAslIeJnvMsdQlhaNFOqo5WJRIvMNSr9bxW049JXg29OMLIPU/ZFFErC/1Ccyafih/iTHkb4H5tb7wizrILDToY9F8WkQ&amp;#43;a&amp;#43;Mt8r/I1pQh65dT24gL7L4LtTkV1TGgfWp538ZdRm9ztuHBmI2QV89vTt/&amp;#43;65sTv/SmI87c9dH42iQv//U9l4x34lfevLlwUP88MuaDeUXndsWoPjwDvWIu3k9qNdv6fM3/a2N08WvGUa0O1p7V5RqA3O9jdQitOGfOackFxtp4tWB9m2LjPRXWbmPLTd&amp;#43;xtqQP70JHU9p9jCbGGGPMiaxtx4oT5rhonC62n2J91XfM2pwipqw5PF6rN9n6sCsma4RwoviZLBgI/2YXmHD4bCMkMjwDK0qkkKUvXZMjZcwswktEm0AAB61tMiKiIPeOHum1FgxTgudi7iW/4fmafq2eovlbv/BzxnO9PmiPFngOPkMYJYSSf&amp;#43;8TzjMTo32TmLWFPQ67cCxcY8elviO5KIe36RQ24rOicboS&amp;#43;euciupQMr7E2C350NJseDBBI2ToJr3EdvO&amp;#43;4kbIPvWKuXg/qeVTxAl8/Iknn6yuJUpjMM5s/arlUnttidazMrSeETHGeooy1nIT4Lqgdd0Y7PJZY2HXTWOvZaI1KPyWdR427OM/Gaa2BcbfVyMEOizVWw903HrxbCysbfH/km3HsA3HKOlBjZD/H2tIzYENvSyUL0PWR8dkskYIJo4J4RuBMTl8t0P0Tf0RVGQEndQnSz4PCqSzWwNGx0qGtBszHqNz&amp;#43;ACpJSXKONSwUfBCnq4FaEmNEMgKe7cWPfSV0nXU038/8eT259y42PO&amp;#43;wuTK&amp;#43;eMafP8Ak0EpwVDOSD&amp;#43;UzSfuPrabGs47U2RqSbRGad6MNxQAG6O4vmZbQhvs00YZ/dV8dU5FdQi0WYs&amp;#43;uQv3zdWGB/tqhLxybnPyrVf&amp;#43;8B0Jv/xzm1e&amp;#43;&amp;#43;V/xtYeoEbK8Rgi&amp;#43;fLpWg6M1AmLG&amp;#43;z9/ocH6OH06m89L8lLW2johWl9k6VKjLJxfiUgWPqtVewB0es3b37Edi798AR194IMf2h6DDWrzpT5bupsb1BHmmPWdDJEfwZdhd3zR9U03v2cyPXWxO8GX9vLLt2FrfNQSPhfVntp&amp;#43;AfztF/5u&amp;#43;3zcW/qFnNYYNaDblq1wDb6kts/4fWLB2vaWW28ryjZGnEQ50Z/Pjj/F&amp;#43;qo2JnM89NgHmzdLORwMqTkcF8&amp;#43;zds7UhppMUzNJI8QmARYhKCUThKCURHCcyvQF1Y5NA9lkFh0rKR7B4I&amp;#43;VDMn5RfOijKXAw5jeYQBlLSUM/B/31gI6IgpyPy&amp;#43;v1&amp;#43;iaKeHco7lRX75IUebIBpGebAAj6eD/0CvHsQkj0ocdA/LwXU9WNns&amp;#43;8q&amp;#43;p9YlnUCYrA/21K1ESja5rEdmV8camKXRt84a9tkRku13aiL5Zk7c2p10X1SmgDoidp/UZH781lmLDg300Qg6bIAe/e/vRMX5U4&amp;#43;wDf3/ptQY1QpbXCKEPw/9sjiOMg2gMD334z&amp;#43;&amp;#43;6&amp;#43;yh2aj7vKcnrZY2uK9XTDJxjNP8MlCezbsrWH8wZ8/v2U08d/Y3xb7jp5m2O4jNbeQi5KiPX3GDOBH3t4oEu/FiwB/ym9VPHQ8nanXD&amp;#43;d9398a2PYzOP77zCscjm8OFSEwNj4cU3jFPzh9oYGeizUZ7AGqxvE4Tjdo2FLrYdEifRGtHTZc0wxfqqNmbf/BfdV8rhAHazOoB9omdyXDsG48fHkB8zoibT1IzeCKGzcaFqEwsn2tWQEb6g2uCmgeyCOzpWUjyCwR&amp;#43;rGZJz9PdQRpzzc7Z6sccJ7y05RTYhWMf0QCY/L69XkHHiMcBzIFdpzjxvbWiBTvx53FPTUyu5lPRh5aR&amp;#43;&amp;#43;GsmGAt65zGru10He/Z5nGcmNvvOoWQLxht/Qs37WmQDUIuhXdsoE481eWsFEBus0zdcc3GD9cIlr/7bDXDEFIW6D5y31yd0VoplsCQbHiQaIa9&amp;#43;96nNiV/7hR&amp;#43;&amp;#43;e6PUsEhu2F/88J1bv3jN/rLL4b2XHTccp0ZIWqcgode&amp;#43;sQZ20QiJahxo1TEL82k0ToaSvF7W6LpSLs/QZY4RvN/KWIK5pyYn5sKNK4/5XEd7tZ6J52XWcx7K2ZeMLlpwjqCPXedExu6E13p/LNU7AB&amp;#43;Mmhj2OOOm5A&amp;#43;lMboA2b18aIL09YcxY6FG3zhp6ZRAxqx81drEd2r6d2iWjh9SG7Nv/ovum6LmcEy&amp;#43;YGVjiLGSIZJpakZthFAxdiJ&amp;#43;4dgqhBmFwUj&amp;#43;Iws2sCmHNRyPReNlqQUI5bbOxrnilRebuEqL6Qg4YRS8XQKWRPd4p49k89cwMMYCOivN00Id1xZv3gdxTzQubIMvon388W8eBTOu9UHo/TWS0&amp;#43;rH&amp;#43;56/P/LNKaklPAvltP5bgmN6O2Yo&amp;#43;TLli&amp;#43;TwOiSlONq1jbzP4fleJkD/jc7VCuB2g&amp;#43;U2eee&amp;#43;9kh903eR1iZyamq&amp;#43;h3P4xRbow&amp;#43;cksDQbHrQaIRcXQKdvv&amp;#43;GS5sTWrtGCKNMIOVxQ&amp;#43;WvoF7UN&amp;#43;bFphHTRKUg2QvrEGsjoFXPxftLKpz4&amp;#43;4Js4bn2Q/lvL3/Rdfy/zaJSbI0pxbeOzdJ2P09bcCcZgozzKJxn47Mz9Uf7xRDmCOmbe&amp;#43;fo3/nP7CvtXHnn0kus8pbyyBOh7kD/K5UsiY3dAX4rmy3iKYhG6ipoYsD&amp;#43;vb/lpaYyuoP7yGUOaIGDMWKjRN054H21rfTaLX0u01lds0tsXJfDiRe3jq7UxMzk&amp;#43;IrpvipoDHcOf7Du7eS3OtfyrVFd2wWiNECrFTzbarJQ2MBFUjndCX1BhKBqEsth7omMA92UU3zIk5PQ/A0kZ8Uzcj385dy9HDToYZaROuiYuzNXf4&amp;#43;eFv2sbEB7bB5Cjj&amp;#43;7sfOgHGAfH//Gf7t/&amp;#43;/Vu//b6jjZl9hvczi08EEd7vauNNQTa5UK5Mku2bsCLfAj4GvZ&amp;#43;WdJbJI7uwEf0S11M3kVz2Onsc1AogN2eXbMQKG2FLq1BPCWwT2dpDG4JSXC/BhgeJd4RcRsmGiQ07F1nWJ7gRP/fQ/dXFVmbDDjAfzCs6tys6&amp;#43;3AtLjo0QrrGGhjaCInyKfzN115eb4&amp;#43;XYoTH4bN&amp;#43;HHuuhperJK&amp;#43;XlddZmVpxWdMFiNYwWRi7mRqH52Tyl4Wyd70PlPLKUrB5vGS7JZC1O64r&amp;#43;RLPRbZEzLWaGLy/Vg/HaIQArHnfcvU1vWOqxJBYqNEnTuibeKdCSx7oPquLTG2yTXT&amp;#43;v1ZHamOWcnyL6L5anu1bc/D9NtBttC6PxvS0cv&amp;#43;UjNIIoUKiiUZKAVBMySk5Hu6hcnxSsAXVX8P7S4mEULb333Hn0efaxsIWBshBmfh3dE8WjtXVYaIg9w6auWZfQI6u&amp;#43;qOf/fNDD2/9BffbuVCXNkmwENn7osRLeaJzFoxHW&amp;#43;1al9nkwnjKJNm&amp;#43;CYu28DFv9RNdV1o8l3KLZWobURf&amp;#43;evqQfW5p/qBWAMMN1uHmrPaW/c6byBGgrTD3PkQ&amp;#43;tQQbHuy5EWI/JtN6B4MaIWW99o01sKtGCGCc8R5fx3i&amp;#43;lG/g27X4oExR3JXk9bLyOltTSrmc1HQBSvGXgfGcWT/g2q7P4dyyeceCeWVy3Jw5DnPI2N2u5UuxURoD99aaGBy75kOtMbpAm5XirS9DYqFGVx&amp;#43;zeRHrxZZtW3nRkq1N23eBXKzHYMjHma3f9cHm4VqehY4jHbRqDonW5bRbhrF9McPgRkir4NY2KyxM/pwtljSYL172Gh90NBDv4XPGwhveYp2DclEOK7O/D9jmyRj450RBbp2euvb3lwJj1zCY&amp;#43;jRC7rjz90MfLQUzbIWPzuBZ1maZgPbPoV3xy0nRs6aktbAk9M2MbN5PuhDZAH5p5fMFq5RDSsd3aaOST1odUT7MM5o/qBXApTRCvB0tGT/E/fjJPpxfmg0PEo2QrR0PF0SWQY2Qf/j8ZRv/bSNkJe8ISesUHKNGCM/RL0t1zAP/tf4cEfl9dN7L62X16zDQWgO18kQp57dozclTy9UlKFuf&amp;#43;s4c1HVec4H67bI2awGddLVBCbxdH34HHeMdEPhOqei6jN3pw9F1PFfyX8RErYmR8aHWGFmgX3xBKcbB/2u1uStDYqFG1zix84JMLdvC/tm9Tnp9dVg/ajWZ1MbM5nhPdF8tz0JnQ2pOlKNrY5JW7p&amp;#43;SQY0QTrjmXJFSLCzMvlhiE4oxbQEjXlEYA8mtlJw8NGBN4bwmGxTABxGTop0bHCIjY4lWoq0RBbl1UI4dfdnNHICs3ldatPQd2Sg6b3VBn4x8I9IxfQmyD7F9H7LJhfPMJFk7Jj&amp;#43;3XbsPOsG1937mvnD&amp;#43;PE/5/N8lG9Zyyy5s1IpFyHDbe3/z6Dl4bmnsWgHsuzlLF&amp;#43;oJwFyjmKGu&amp;#43;Hctlpdkw4NGI4Qb9tRHLhIb9qPFlR/zIq0NeWbDDjAfzCs6tyuacZHVKThmjRALfT/KwzYuGJM4Fv1UJa&amp;#43;txY&amp;#43;VF/PB9fg/8ruVNdp4RPXUUtMF4P1d1gCA88roEnCtUZITYHONtRK/8wC5Afd42TBWS95abahBOfuS1UcLyJ9ZO3QBY3KjHp3PQj9k8wM/d1vywYzd6YOR7rgmoS4wntUL/LDUxKDv2&amp;#43;dHvlMbIwvG9brFsVLctRgzFmr0jRMQ5SMPxs/GRHZ9hXeEnLr&amp;#43;6s3pW66rfok5yI45lClrTrQuz4zZyv1TMqgRgo&amp;#43;T2ICkAjJYpUBJOEbF2WRC5ZSCB/da52YAlhIZx6sZJbMYsESGB6Wi3TeYOR6eRUrzjGCQnz59OtQB5brnU3912djUSZfnjQ39pEsi9f4B6COk5gvRwq2rvQFlH3ux0CJKLrClXwRT9q7ycfzafdB3LbnhPIqy/S1&amp;#43;2quWHEt2qJ0by0aUKxvHrbzT3PAtpBHCeXo9ejviZwY/e9/ntteVfGNJNjyoNUION&amp;#43;CXLYKGNEIuUvvVmJpfTNUI8fnZ/106VqPow111Co5xIySKiZp/M7ZsnPBY7XkcE9f5a62s/jrKRTmjnA1quqid5/qk5Fd8bmlcD3VRGo/P4zX2bzs3HL/iyqua&amp;#43;YVrs5ad5wjsntXrrqG/&amp;#43;HpQWpO07A5oa2&amp;#43;vyAfwHO8PpSaG99HStbUxMsBepQZTH1vaeY8RCzWGxAls26r1XcbPrK&amp;#43;2NeHwnSB8F2et/tTGhH/YX&amp;#43;ahr1odR8doD3uslmeH1BwQyYAxcSxDSSaez6ztujLal6WWiJTSwk76gQcf2hrMK5vGjRwbzox7o2SGBfiXv/LI1oB8BqDyKW9mcUxHKBmm5CgAMmYX4IBy0UFtssmMQ50Qbw/qHLLWgmkKJ8xiZYzOR&amp;#43;CeLnr20IZWF08//cyRLBybiSVKIDyH671eI7r6Rg2f8Ci3TzYtXwa8dywoA&amp;#43;YbJT9AX4xsXsstu7BR5jrC&amp;#43;CnNs1YAp2yEjOlr9KGafv38a3l8STY8aLwjxH9bPBdF4cc4ko0QjmF9wC687LWWzIYdYD6YV3TOY3UP/bx0&amp;#43;E4x/g19&amp;#43;WuiOPDUfLiTTsHKGiEtGFtcY&amp;#43;H/tfu7xIvNK7wvMw&amp;#43;rC77bEPcC6gdy&amp;#43;3zB2CzJz1qRXb&amp;#43;06qFdD0FOfukknkEZsNa84aabm/qq2X/uQK8Zu&amp;#43;6LUlyU4iqzDgI2dvA3bX3N29&amp;#43;xPQ6bYyz/k7Lwm1YjBM&amp;#43;GT8CnIn&amp;#43;ujdECcrf8LHONZcxYqDE0TuCrrbUOclXWn1vrq2J9Dt7FSUpjcu5W/shXo2PQPV5ktHqr6bIUGx4&amp;#43;y/totC7PjFmSydqNzxziRxGzbITAGWFI3msDCjAJRUmC4JraeULl8zmgFSwgE1QlRyGZeXCM0nVW/sjR&amp;#43;AwbGB7qmddENmvNZRdk9OXBPRl7lmgFHmUi/jqbwPhTvbWEwKLSN9l7&amp;#43;Hx&amp;#43;dAwyRr7Aedb8JCLjF4jn2nxK5yl7SV/Z3DKmjWy8tZ5r4WagpKdaUe27OWsV6jF9rZVnqLfSs6ifXcTZFDY8aDRCuAnHImjLxQ38&amp;#43;ce/EW/Mk40QYDf/WxINjikaIYA2on7836VjNao&amp;#43;3EWn5vrj2AjJ5kKLjYMxcgCwcWhrLnNNSUYrCynV7ahWZet01u9qNiH4lQTWVH63kf0uCrzqXvouCkumhs4RyM2PsEfn&amp;#43;0IdQn9Dxy7pFv4Q&amp;#43;VfG7sTan7Li/g988EOXHLP3tJoYHBOy3fPpe8NrWmOUQI7Ixjn0A5&amp;#43;OzkWMFQs1hsYJ5l/KKQQ1PpNvQa02HdXlQi1BvYqaIaUxmb98fvPy0n/9HFgfqLuanw&amp;#43;tOdHxzJglmewcWUe67lNazK4Rwonyejp/xjB94PiQMWJIcSo5r4XPt4alQ3SVgQv1bLIDlDFaVNjndrXjFFDWLjbhPUOJ5m0Xd8Tqnna0yZe6Ldko0v0QrIy1GIr8sEXkOxHwy5pPRudtDJR8LuOTY9qIY9WKqY9dS82m1Q1fT1pjjuVrJTv42GstQnB9dM0SbHjQaoR0oUMjpA9TNUKmYNS4mIFeMRfvJzV/A9kFZHaNZOPJx8cQMusPXzP4dys3ePgs5pxS7gBRfshQG3NMdvWcMYEP4RX&amp;#43;oTKjdvi1J95FwXcDjVWb/Dj0u2jtMKU9oLchH2sBY4yxRIbaBb6A&amp;#43;/lCCezfFeuro9amQ6Ix6cPROjtae5V8GzmT&amp;#43;puy5liZmKf7wDpi7T7WmtUzu0YIJh0p1xbvLkQKozJ5TVS4vaO0NnvAj5u9j1BXYIihrcNH54HVZ/SsyIG7zGUKGOBjB0EN2tT6r7Wz91XoDceeePLJ7TWRL/P&amp;#43;6NzQZO/Jxh9latnYxkV2EQ2d1K6NzvPtfDW5a3Mb20b8Ozvnrjz33HOjFtULFy5si&amp;#43;qZM2fC82BsXxubJdkQC3e/we3NjBohmFd0bleMuticgV4PgoYZc2rkl349VFrAtuLYxhLIrscysC5n1weUZUgdj/Rg9YfzH/vTP9v85Sc/dbTW6Rr3Y8jZgvPY99qqC9Dn0I85AM7djgNf4obHvtuk6/qfMcM1grchfba2dpjC7piHGiHdGSNO4Atjrnd2tWbz38VpYVxYX6X/et/G8Xdef&amp;#43;N2POpzipqT3XN0gfEKpsiVs2uEwFilt4T1xRsyWjTXoLPNedPQBQbKFBuC4w42YK1gpL/0uabVNBBtprbRFOALjE&amp;#43;ePBme6wM35phDdB7M2deWZkPUGOj73Bi6nMGGnf6DeUXnd8WpU6c2J06cCM91ZgZ6ff7557dzis6NDWMIHNeaYufoN9Q4hrUem6V9NrZ&amp;#43;UzA2Y2/OpoZr6aFNAo5T0i30PobPlpoaGL&amp;#43;m96nsjnqkRkh35hgn&amp;#43;1iziWmYvBEihBCiDoofiuALL7wwuBCioOLVChTq6LyYBmxwR2mGHG7Yj7774iJDN&amp;#43;/bTboZr7Zh54JsVxv2GmwwIS7Onz8fXpNmj3rFPOgf&amp;#43;24urQE2SO66&amp;#43;&amp;#43;ODGr5jbfwjphx7KqDLoU1l/HwtfyEuGgv1D83rMV5RrjVCao2OqWwzRhNjjDGWxFzjRGu244MaIUIIMQPOnj27LYYorkNBQcVbLaPniGl4/fXXjza7SwfzwHyiee4aLjiPA0MXzCIH9MzN9vvvuHPQOwvwMc2xNuaWsd71sCv4LoqHv/ilzSOPPrb9Va8InPP84Yc/sv04DexhiXSKV//ZpMD/cQ3sCRv4&amp;#43;0vwfm6ifcMl0xybwu6Yhxoh3ZhznGjNdjxQI0QIIWYCCiGKKz572gd8vlSbrf2CxTde4YnsM3cgN&amp;#43;SP5rVP0JSBX0cyLwHIPpfGkugOf/5zrLfmY3PHX9eIzs8NfsR9TErvyOC7TqDzW269bbCO&amp;#43;LEK/moJf80k0&amp;#43;AY2&amp;#43;7IA7ah06XJAp9p6e64sYQ40Zpt&amp;#43;agRIoQQQgghhLgMNEejd38MAR9biZ6FxgUaFWP8fC6xP&amp;#43;X6lquv2Tzw4EPhdUKI9aFGiBBCCCGEEEIIIVaDGiFCCCGEEEIIIYRYDWqECCGEEEIIIYQQYjWoESKEEEIIIYQQQojVoEaIEEIIIYQQQgghVoMaIUIIIYQQQgghhFgNaoQIIYQQQgghhBBiNagRIoQQQgghhBBCiNWgRogQQgghhBBCCCFWgxohQgghhBBCCCGEWA1qhAghhBBCCCGEEGI1qBEihBBCCCGEEEKI1aBGiBBCCCGEEEIIIVaDGiFCCCGEEEIIIYRYDWqECCGEEEIIIYQQYjWoESKEEEIIIYQQQojVoEaIEEIIIYQQQgghVoMaIUIIIYQQQgghhFgNaoQIIYQQQgghhBBiNagRIoQQQgghhBBCiNWgRogQQgghhBBCCCFWgxohQgghhBBCCCGEWAmvbf4PQwgGPG7csFwAAAAASUVORK5CYII=&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;//问题出在时间上，计算N次方调用头文件省时间&lt;/p&gt;
+&lt;p&gt;//使用函数形式为pow(a,b)&lt;/p&gt;
+&lt;p&gt;#include&amp;lt;stdio.h&amp;gt;&lt;/p&gt;
+&lt;p&gt;#include&amp;lt;math.h&amp;gt;&lt;/p&gt;
+&lt;p&gt;double f( int n, double a[], double x )&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;    int i,m;&lt;/p&gt;
+&lt;p&gt;    double product,sum=0;&lt;/p&gt;
+&lt;p&gt;    for(m=0;m&amp;lt;=n;m++)&lt;/p&gt;
+&lt;p&gt;    {&lt;/p&gt;
+&lt;p&gt;        double product=a[m]*pow(x,m);&lt;/p&gt;
+&lt;p&gt;        sum+=product;&lt;/p&gt;
+&lt;p&gt;    }&lt;/p&gt;
+&lt;p&gt;    return sum;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;double f( int n, double a[], double x )&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;       int i,m;&lt;/p&gt;
+&lt;p&gt;       double product,sum=0;&lt;/p&gt;
+&lt;p&gt;       for(m=0;m&amp;lt;=n;m++)&lt;/p&gt;
+&lt;p&gt;       {&lt;/p&gt;
+&lt;p&gt;       product=a[m];&lt;/p&gt;
+&lt;p&gt;       for(i=0;i&amp;lt;m;i++)&lt;/p&gt;
+&lt;p&gt;       product=product*x;&lt;/p&gt;
+&lt;p&gt;       sum+=product;&lt;/p&gt;
+&lt;p&gt;       }&lt;/p&gt;
+&lt;p&gt;       return sum;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>10001</title>
+        <link>https://96bear.github.io/p/10001/</link>
+        <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/10001/</guid>
+        <description>&lt;p&gt;/* 卡拉兹(Callatz)猜想： 对任何一个自然数n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把(3n+1)砍掉一半。这样一直反复砍下去， 最后一定在某一步得到n=1。卡拉兹在1950年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员， 拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证(3n+1)，以至于有人说这是一个阴谋， 卡拉兹是在蓄意延缓美国数学界教学与科研的进展……&lt;/p&gt;
+&lt;p&gt;我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过1000的正整数n，简单地数一下，需要多少步（砍几下）才能得到n=1？&lt;/p&gt;
+&lt;p&gt;输入格式：每个测试输入包含1个测试用例，即给出自然数n的值。&lt;/p&gt;
+&lt;p&gt;输出格式：输出从n计算到1需要的步数。&lt;/p&gt;
+&lt;p&gt;输入样例： 3 输出样例： 5 */&lt;/p&gt;
+&lt;p&gt;#include&lt;/p&gt;
+&lt;p&gt;int main() { int n,count=0; scanf(&amp;quot;%d&amp;quot;,&amp;amp;n); while(n!=1) { switch(n%2) { case 0 : n=n/2; count++; break; case 1 : n=(3*n+1)/2; count++; break; default : break; } } printf(&amp;quot;%d&amp;quot;,count); return 0; }&lt;/p&gt;
+&lt;p&gt;#include int main() { int n,count=0; scanf(&amp;quot;%d&amp;quot;,&amp;amp;n); while(n!=1) { count++; if(n%2==1) n=(3*n+1)/2; else n=n/2; } printf(&amp;quot;%d\n&amp;quot;,count); return 0; } #include int main() { int n,count=0; scanf(&amp;quot;%d&amp;quot;,&amp;amp;n); for(;n!=1;) { count++; if(n%2==1) n=(3*n+1)/2; else n=n/2; } printf(&amp;quot;%d\n&amp;quot;,count); return 0; }&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

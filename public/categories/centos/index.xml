@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>centos on Bear</title>
+        <link>https://96bear.github.io/categories/centos/</link>
+        <description>Recent content in centos on Bear</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Bear</copyright>
+        <lastBuildDate>Mon, 05 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://96bear.github.io/categories/centos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>VmWare缩小磁盘占用大小</title>
+        <link>https://96bear.github.io/p/vmware%E7%BC%A9%E5%B0%8F%E7%A3%81%E7%9B%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F/</link>
+        <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/vmware%E7%BC%A9%E5%B0%8F%E7%A3%81%E7%9B%98%E5%8D%A0%E7%94%A8%E5%A4%A7%E5%B0%8F/</guid>
+        <description>&lt;p&gt;VmWare越用约大，已经达到了52个G，这种情况下虚拟机的压缩传输都成了大问题&lt;/p&gt;
+&lt;h2 id=&#34;如何缩小&#34;&gt;如何缩小&lt;/h2&gt;
+&lt;p&gt;在已经安装VMtools的虚拟机中执行 &lt;code&gt;vmware-toolbox-cmd disk shrink /&lt;/code&gt; 注意：先删除所有快照，否则会报错 静静等待进度达到100&lt;/p&gt;
+&lt;h2 id=&#34;成果&#34;&gt;成果&lt;/h2&gt;
+&lt;p&gt;52 =&amp;gt; 17.9G&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>centos7 matlab runtime 部署流程</title>
+        <link>https://96bear.github.io/p/centos7-matlab-runtime-%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</link>
+        <pubDate>Thu, 22 Sep 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/centos7-matlab-runtime-%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</guid>
+        <description>&lt;h2 id=&#34;环境&#34;&gt;环境&lt;/h2&gt;
+&lt;p&gt;centos7 虚拟机环境&lt;br&gt;
+内存6G cpu 2*4 硬盘100G&lt;br&gt;
+x86_64&lt;/p&gt;
+&lt;h2 id=&#34;下载&#34;&gt;下载&lt;/h2&gt;
+&lt;p&gt;(约30分钟)&lt;br&gt;
+在 &lt;a class=&#34;link&#34; href=&#34;https://ww2.mathworks.cn/products/compiler/matlab-runtime.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;页面&lt;/a&gt; 选择版本下载&lt;br&gt;
+测试时使用的是：&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://ssd.mathworks.com/supportfiles/downloads/R2022a/Release/5/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2022a_Update_5_glnxa64.zip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://ssd.mathworks.com/supportfiles/downloads/R2022a/Release/5/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2022a_Update_5_glnxa64.zip&lt;/a&gt;&lt;br&gt;
+&lt;img src=&#34;https://96bear.github.io/images/b5df423990674a0fcbefed40f4acdf82.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;解压&#34;&gt;解压&lt;/h2&gt;
+&lt;p&gt;(约20分钟)&lt;/p&gt;
+&lt;p&gt;unzip MATLAB_Runtime_R2022a_Update_5_glnxa64.zip&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;unzip MATLAB_Runtime_R2022a_Update_5_glnxa64.zip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;(约8分钟)&lt;/p&gt;
+&lt;p&gt;./install -mode silent -agreeToLicense yes #静默模式安装&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./install -mode silent -agreeToLicense yes #静默模式安装
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;环境变量&#34;&gt;环境变量&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;本步骤永久固化环境变量，不建议执行，原因见问题2&lt;/strong&gt;&lt;br&gt;
+(约1分钟)&lt;/p&gt;
+&lt;p&gt;vi /etc/profile&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vi /etc/profile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;编辑文件加入&lt;br&gt;
+&lt;code&gt;export LD_LIBRARY_PATH=/usr/local/MATLAB/MATLAB_Runtime/v912/runtime/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v912/bin/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v912/sys/os/glnxa64:&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;source /etc/profile&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;source /etc/profile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;测试&#34;&gt;测试&lt;/h2&gt;
+&lt;h3 id=&#34;占用&#34;&gt;占用&lt;/h3&gt;
+&lt;p&gt;cpu 4x4核虚拟机未开启虚拟化100%&lt;br&gt;
+mem 2g左右&lt;br&gt;
+&lt;img src=&#34;https://96bear.github.io/images/ccc2e11415380a79cb972b47dbf72385.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;耗时&#34;&gt;耗时&lt;/h3&gt;
+&lt;p&gt;196秒，处理文件大小2.3m&lt;br&gt;
+（惨不忍睹）&lt;br&gt;
+&lt;img src=&#34;https://96bear.github.io/images/4a51e4e40b59c00778d9a9543c874002.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;可能出现的问题&#34;&gt;可能出现的问题&lt;/h2&gt;
+&lt;h3 id=&#34;1glibcxx_3421&#34;&gt;1、GLIBCXX_3.4.21&lt;/h3&gt;
+&lt;p&gt;$ java -jar testJar.jar
+java: symbol lookup error: /usr/local/MATLAB/MATLAB_Runtime/v912/bin/glnxa64/../../sys/os/glnxa64/libstdc++.so.6: undefined symbol: __cxa_thread_atexit_impl&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ java -jar testJar.jar
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;java: symbol lookup error: /usr/local/MATLAB/MATLAB_Runtime/v912/bin/glnxa64/../../sys/os/glnxa64/libstdc++.so.6: undefined symbol: __cxa_thread_atexit_impl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;尝试用本地的库链接解决：&lt;br&gt;
+&lt;code&gt;sudo ln -sf /usr/lib64/libstdc++.so.6.0.19 /usr/local/MATLAB/MATLAB_Runtime/v912/sys/os/glnxa64/libstdc++.so.6&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;$ java -jar testJar.jar
+Exception in thread &amp;ldquo;main&amp;rdquo; java.lang.UnsatisfiedLinkError: /usr/local/MATLAB/MATLAB_Runtime/v912/bin/glnxa64/libnativedl.so: /usr/local/MATLAB/MATLAB_Runtime/v912/bin/glnxa64/../../sys/os/glnxa64/libstdc++.so.6: version `GLIBCXX_3.4.21&amp;rsquo; not found (required by /usr/local/MATLAB/MATLAB_Runtime/v912/bin/glnxa64/libnativedl.so)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ java -jar testJar.jar
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Exception in thread &amp;#34;main&amp;#34; java.lang.UnsatisfiedLinkError: /usr/local/MATLAB/MATLAB_Runtime/v912/bin/glnxa64/libnativedl.so: /usr/local/MATLAB/MATLAB_Runtime/v912/bin/glnxa64/../../sys/os/glnxa64/libstdc++.so.6: version `GLIBCXX_3.4.21&amp;#39; not found (required by /usr/local/MATLAB/MATLAB_Runtime/v912/bin/glnxa64/libnativedl.so)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;查询：&lt;br&gt;
+strings /usr/lib64/libstdc++.so.6 |grep GLIBCXX&lt;br&gt;
+&lt;img src=&#34;https://96bear.github.io/images/e0bab23ee0867d15c6b35c0edb6feae4.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;br&gt;
+了解 &lt;code&gt;libstdc++.so.6&lt;/code&gt; 版本低,该库来自gcc v9以上版本编译，本地gcc版本8.5&lt;/p&gt;
+&lt;h4 id=&#34;解决&#34;&gt;解决&lt;/h4&gt;
+&lt;p&gt;升级GCC（编译安装约一小时），参考 &lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/498529973&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/498529973&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;http://www.45fan.com/article.php?aid=1yHfFmWE9y3w8MG9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://www.45fan.com/article.php?aid=1yHfFmWE9y3w8MG9&lt;/a&gt; 升级10.2&lt;br&gt;
+随后&lt;br&gt;
+&lt;code&gt;sudo ln -sf /usr/lib64/libstdc++.so.6.0.28 /usr/local/MATLAB/MATLAB_Runtime/v912/sys/os/glnxa64/libstdc++.so.6&lt;/code&gt;&lt;br&gt;
+&lt;img src=&#34;https://96bear.github.io/images/b492fc8c428a690dad6b3a9b89fb279f.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;br&gt;
+问题已经解决&lt;br&gt;
+&lt;img src=&#34;https://96bear.github.io/images/df0693e5adaae4eceae808a308854a58.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2yum报错-so冲突动态链接库&#34;&gt;2、yum报错 .so冲突（动态链接库&lt;/h3&gt;
+&lt;p&gt;由于matlab runtime的依赖库造成包括但不限于 yum（基于py2） 的崩溃&lt;br&gt;
+pycurl.so There was a problem importing one of the Python modules required to run yum.&lt;br&gt;
+&lt;img src=&#34;https://96bear.github.io/images/c5cb53e1c65995b745da1ba6b75de99e.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;检查命令&lt;br&gt;
+&lt;code&gt;ldconfig -p | grep curl&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;ldd /usr/lib64/python2.7/site-packages/pycurl.so&lt;/code&gt;&lt;br&gt;
+&lt;img src=&#34;https://96bear.github.io/images/5587027ae1c371052f3f117c06af63ff.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;很明显 需要的依赖跑偏了&lt;/p&gt;
+&lt;h3 id=&#34;处理建议&#34;&gt;处理建议&lt;/h3&gt;
+&lt;p&gt;取消永久固化 $LD_LIBRARY_PATH&lt;br&gt;
+仅在所需会话中&lt;br&gt;
+&lt;code&gt;export LD_LIBRARY_PATH=/usr/local/MATLAB/MATLAB_Runtime/v912/runtime/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v912/bin/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v912/sys/os/glnxa64:&lt;/code&gt;&lt;br&gt;
+[官方建议](&lt;a class=&#34;link&#34; href=&#34;https://ww2.mathworks.cn/help/compiler/m&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://ww2.mathworks.cn/help/compiler/m&lt;/a&gt; xa64/jre/lib/fonts`&lt;br&gt;
+下载 &lt;a class=&#34;link&#34; href=&#34;https://jaist.dl.sourceforge.net/project/wqy/wqy-microhei/0.2.0-beta/wqy-microhei-0.2.0-beta.tar.gz&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;# 下载
+wget &lt;a class=&#34;link&#34; href=&#34;https://jaist.dl.sourceforge.net/project/wqy/wqy-microhei/0.2.0-beta/wqy-microhei-0.2.0-beta.tar.gz&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://jaist.dl.sourceforge.net/project/wqy/wqy-microhei/0.2.0-beta/wqy-microhei-0.2.0-beta.tar.gz&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;解压保存&#34;&gt;解压保存&lt;/h1&gt;
+&lt;p&gt;tar -zxvf wqy-microhei-0.2.0-beta.tar.gz
+mv wqy-microhei /usr/share/fonts/&lt;/p&gt;
+&lt;h1 id=&#34;复制到matlab-jre路径&#34;&gt;复制到matlab jre路径&lt;/h1&gt;
+&lt;p&gt;cp /usr/share/fonts/wqy-microhei/wqy-microhei.ttc /usr/local/MATLAB/MATLAB_Runtime/v912/sys/java/jre/glnxa64/jre/lib/fonts&lt;/p&gt;
+&lt;h1 id=&#34;进入相应目录&#34;&gt;进入相应目录&lt;/h1&gt;
+&lt;p&gt;cd /usr/local/MATLAB/MATLAB_Runtime/v912/sys/java/jre/glnxa64/jre/lib/fonts&lt;/p&gt;
+&lt;h1 id=&#34;生成文件-fonts-dir&#34;&gt;生成文件 fonts dir&lt;/h1&gt;
+&lt;p&gt;mkfontdir&lt;/p&gt;
+&lt;h1 id=&#34;建立字体索引&#34;&gt;建立字体索引&lt;/h1&gt;
+&lt;p&gt;mkfontscale&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 下载
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://jaist.dl.sourceforge.net/project/wqy/wqy-microhei/0.2.0-beta/wqy-microhei-0.2.0-beta.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 解压保存
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar -zxvf wqy-microhei-0.2.0-beta.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mv wqy-microhei /usr/share/fonts/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 复制到matlab jre路径
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp /usr/share/fonts/wqy-microhei/wqy-microhei.ttc /usr/local/MATLAB/MATLAB_Runtime/v912/sys/java/jre/glnxa64/jre/lib/fonts
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 进入相应目录
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd /usr/local/MATLAB/MATLAB_Runtime/v912/sys/java/jre/glnxa64/jre/lib/fonts
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 生成文件 fonts dir
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkfontdir
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 建立字体索引
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkfontscale
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;再次运行，中文字体修复&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>ruoyi-cloud 学习笔记</title>
+        <link>https://96bear.github.io/p/ruoyi-cloud-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/ruoyi-cloud-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+        <description>&lt;h1 id=&#34;ruoyi-微服务版本-学习上手&#34;&gt;ruoyi 微服务版本 学习上手&lt;/h1&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://doc.ruoyi.vip/ruoyi-cloud/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://doc.ruoyi.vip/ruoyi-cloud/&lt;/a&gt; ruoyi 微服务版本文档&lt;/p&gt;
+&lt;h2 id=&#34;目标&#34;&gt;目标&lt;/h2&gt;
+&lt;p&gt;基于centos环境 自行搭建一套nacos微服务中心 然后运行起该项目 进行学习&lt;/p&gt;
+&lt;h2 id=&#34;搭建记录&#34;&gt;搭建记录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[x] ruoyi-cloud大致了解&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] Java ide选择安装&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] centos云服务器重装&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 服务器安装openjdk8&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/qq_39648029/article/details/120760172&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;centos安装nacos2.0.3_毅大师的博客-CSDN博客_centos nacos&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/rao991207823/article/details/118914715&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maven-CentOS安装_宇枫16的博客-CSDN博客_centos maven安装&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] yum install maven （本地构建时发现会自动安装jdk8作为依赖）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 在bt面板进行&lt;a class=&#34;link&#34; href=&#34;https://www.bt.cn/new/download.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;宝塔面板下载，免费全能的服务器运维软件 (bt.cn)&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] 安装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Mysql &amp;gt;= 5.7.0 (推荐5.7版本)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Redis &amp;gt;= 3.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Node &amp;gt;= 12（PM2管理器 5.2）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Nginx1.2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;[x] 数据库导入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3、创建数据库ry-cloud并导入数据脚本ry_2021xxxx.sql（必须），quartz.sql（可选）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4、创建数据库ry-config并导入数据脚本ry_config_2021xxxx.sql（必须）
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 了解mvn命令&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/jimisun/p/7842537.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maven的使用入门 - jimisun - 博客园&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] ~~~shell // 构建jar mvn complile // 对于java工程执行package打成jar包，对于web工程打成war包 mvn package&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] [Maven全局配置文件settings.xml详解 - 洪墨水 - 博客园 ](&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/hongmoshui/p/10762272.html#:~:text=settings.xml%e4%b8%ad%e5%8c%85%e5%90%ab%e7%b1%bb%e4%bc%bc%e6%9c%ac%e5%9c%b0%e4%bb%93%e5%ba%93%e3%80%81%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e5%92%8c%e8%81%94%e7%bd%91%e4%bd%bf%e7%94%a8%e7%9a%84%e4%bb%a3%e7%90%86%e4%bf%a1%e6%81%af%e7%ad%89%e9%85%8d%e7%bd%ae&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.cnblogs.com/hongmoshui/p/10762272.html#:~:text=settings.xml中包含类似本地仓库、远程仓库和联网使用的代理信息等配置&lt;/a&gt;。 ,settings.xml文件一般存在于Maven的安装目录的conf子目录下面，或者是用户目录的.m2子目录下面。 其实相对于多用户的PC机而言，在Maven安装目录的conf子目录下面的settings.xml才是真正的全局的配置。)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a class=&#34;link&#34; href=&#34;https://www.yisu.com/zixun/131089.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;如何在linux中编译写和运行java代码 - 编程语言 - 亿速云&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[ ] 爆炸了，1C1G已重启三遍，不过应该算是成功了&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 换一个思路，配置不够本地构建&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] [VirtualBox]VirtualBox中安装CentOS-8 - 简书 ](&lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/4aee7e81db11&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.jianshu.com/p/4aee7e81db11&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 配置ssh，zsh，建立快照&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 文件转移&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 踩坑https://blog.csdn.net/newbie_R/article/details/115920761 要改nacos里ruoyi-system-dev.yml里的sql账密&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 本地搭建成功&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;学习参考&#34;&gt;学习参考&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://doc.ruoyi.vip/ruoyi-cloud/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://doc.ruoyi.vip/ruoyi-cloud/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;bing等搜索引擎&lt;/p&gt;
+&lt;h2 id=&#34;学习任务&#34;&gt;学习任务&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] ruoyi-cloud文档&lt;/li&gt;
+&lt;li&gt;[x] 搭建起centos环境&lt;/li&gt;
+&lt;li&gt;[x] 搭建一套nacos微服务中心&lt;/li&gt;
+&lt;li&gt;[ ] 再读文档&lt;/li&gt;
+&lt;li&gt;[ ] 尝试框架更多的功能&lt;/li&gt;
+&lt;li&gt;[ ] 读源码，学java&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

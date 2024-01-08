@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>website on Bear</title>
+        <link>https://96bear.github.io/categories/website/</link>
+        <description>Recent content in website on Bear</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Bear</copyright>
+        <lastBuildDate>Wed, 02 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://96bear.github.io/categories/website/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>WordPress迁移（windows to linux）</title>
+        <link>https://96bear.github.io/p/wordpress%E8%BF%81%E7%A7%BBwindows-to-linux/</link>
+        <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/wordpress%E8%BF%81%E7%A7%BBwindows-to-linux/</guid>
+        <description>&lt;h1 id=&#34;wordpress迁移windows-to-linux&#34;&gt;WordPress迁移（windows to linux）&lt;/h1&gt;
+&lt;p&gt;我的情况是域名不变，服务器从win重装为ubuntu 环境从Apache转Nginx 如果域名要变要改把数据库wp_options表中siteurl和home两处网址改为新的网址&lt;/p&gt;
+&lt;p&gt;我在本地做迁移测试的时候做过这个操作&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sql语句&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;UPDATE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;wp_posts&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;post_content&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;REPLACE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;post_content&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;原内容&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;新内容&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;前置条件&#34;&gt;前置条件&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;一定把缓存插件先删掉（比如wp super cache），这玩意有个绝对路径会报错&lt;/li&gt;
+&lt;li&gt;尽量关闭插件，迁移后再启用&lt;/li&gt;
+&lt;li&gt;使用面板分别对数据库和网站目录进行备份&lt;/li&gt;
+&lt;li&gt;下载两个备份&lt;/li&gt;
+&lt;li&gt;备份ssl证书，如果有的话&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;操作&#34;&gt;操作&lt;/h2&gt;
+&lt;p&gt;！ 我是重装系统，ip没变，域名没变&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装面板（比如宝塔，小皮）&lt;/li&gt;
+&lt;li&gt;安装新环境（如合适版本的Nginx+sql+php）&lt;/li&gt;
+&lt;li&gt;创建网站&lt;/li&gt;
+&lt;li&gt;新建数据库，名称用户名密码和备份文件里的&lt;strong&gt;wp-config.php保持一致&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;上传数据库备份，导入到新数据库&lt;/li&gt;
+&lt;li&gt;（域名改了的加一条）修改数据库里wp_options表中siteurl和home两处&lt;/li&gt;
+&lt;li&gt;上传网站文件备份，放到新的目录里&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;先修改新目录（含子文件）权限777&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;删除文件.htaccess&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;如果ssl证书这时候可以填上了&lt;/li&gt;
+&lt;li&gt;打开网站，我这时就可以正常访问、登陆，开始启用修改插件&lt;/li&gt;
+&lt;li&gt;chmod 755 /www/wwwroot/site-name/wp-content/&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Bear的个人导航</title>
+        <link>https://96bear.github.io/p/bear%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%AF%BC%E8%88%AA/</link>
+        <pubDate>Mon, 17 Feb 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/bear%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%AF%BC%E8%88%AA/</guid>
+        <description>&lt;p&gt;手头有个闲置的域名mieoo.com,还有一个闲置的免备案网页空间. 避免资源浪费建立了个人导航,纯静态的,还是半成品.&lt;/p&gt;
+&lt;p&gt;传送门:&lt;a class=&#34;link&#34; href=&#34;https://www.mieoo.com&#34;  title=&#34;Bear的个人导航&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bear的个人导航&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;PS:导航域名出售,有需要请联系bear962464@foxmail.com &lt;img src=&#34;https://96bear.github.io/images/Cute-stupid-Avatar-13-300x300.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Wordpress自带垃圾评论过滤Akismet Anti-Spam</title>
+        <link>https://96bear.github.io/p/wordpress%E8%87%AA%E5%B8%A6%E5%9E%83%E5%9C%BE%E8%AF%84%E8%AE%BA%E8%BF%87%E6%BB%A4akismet-anti-spam/</link>
+        <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/wordpress%E8%87%AA%E5%B8%A6%E5%9E%83%E5%9C%BE%E8%AF%84%E8%AE%BA%E8%BF%87%E6%BB%A4akismet-anti-spam/</guid>
+        <description>&lt;p&gt;以前从来不重视评论过滤，直到有一天被盯上，邮箱疯狂推送某种违法物品的宣传广告评论我才意识到不对。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/image.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;正经的备案，真的不能放任不管&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Wordpress自带垃圾评论过滤Akismet Anti-Spam还是比较有效的，这是个免费的插件。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/image-1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;使用插件需要注册账号申请一个api，很简单三分钟的事，安装后（一般自带）点击设置跟随指示做就好。&lt;/p&gt;
+&lt;p&gt;注意申请时可以选择免费个人版！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://96bear.github.io/images/image-2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;设置页面&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

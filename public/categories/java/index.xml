@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>java on Bear</title>
+        <link>https://96bear.github.io/categories/java/</link>
+        <description>Recent content in java on Bear</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Bear</copyright>
+        <lastBuildDate>Mon, 25 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://96bear.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ruoyi-cloud 学习笔记</title>
+        <link>https://96bear.github.io/p/ruoyi-cloud-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://96bear.github.io/p/ruoyi-cloud-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+        <description>&lt;h1 id=&#34;ruoyi-微服务版本-学习上手&#34;&gt;ruoyi 微服务版本 学习上手&lt;/h1&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://doc.ruoyi.vip/ruoyi-cloud/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://doc.ruoyi.vip/ruoyi-cloud/&lt;/a&gt; ruoyi 微服务版本文档&lt;/p&gt;
+&lt;h2 id=&#34;目标&#34;&gt;目标&lt;/h2&gt;
+&lt;p&gt;基于centos环境 自行搭建一套nacos微服务中心 然后运行起该项目 进行学习&lt;/p&gt;
+&lt;h2 id=&#34;搭建记录&#34;&gt;搭建记录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[x] ruoyi-cloud大致了解&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] Java ide选择安装&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] centos云服务器重装&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 服务器安装openjdk8&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/qq_39648029/article/details/120760172&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;centos安装nacos2.0.3_毅大师的博客-CSDN博客_centos nacos&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/rao991207823/article/details/118914715&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maven-CentOS安装_宇枫16的博客-CSDN博客_centos maven安装&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] yum install maven （本地构建时发现会自动安装jdk8作为依赖）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 在bt面板进行&lt;a class=&#34;link&#34; href=&#34;https://www.bt.cn/new/download.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;宝塔面板下载，免费全能的服务器运维软件 (bt.cn)&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] 安装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Mysql &amp;gt;= 5.7.0 (推荐5.7版本)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Redis &amp;gt;= 3.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Node &amp;gt;= 12（PM2管理器 5.2）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Nginx1.2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;[x] 数据库导入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3、创建数据库ry-cloud并导入数据脚本ry_2021xxxx.sql（必须），quartz.sql（可选）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4、创建数据库ry-config并导入数据脚本ry_config_2021xxxx.sql（必须）
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 了解mvn命令&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/jimisun/p/7842537.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maven的使用入门 - jimisun - 博客园&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] ~~~shell // 构建jar mvn complile // 对于java工程执行package打成jar包，对于web工程打成war包 mvn package&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] [Maven全局配置文件settings.xml详解 - 洪墨水 - 博客园 ](&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/hongmoshui/p/10762272.html#:~:text=settings.xml%e4%b8%ad%e5%8c%85%e5%90%ab%e7%b1%bb%e4%bc%bc%e6%9c%ac%e5%9c%b0%e4%bb%93%e5%ba%93%e3%80%81%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e5%92%8c%e8%81%94%e7%bd%91%e4%bd%bf%e7%94%a8%e7%9a%84%e4%bb%a3%e7%90%86%e4%bf%a1%e6%81%af%e7%ad%89%e9%85%8d%e7%bd%ae&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.cnblogs.com/hongmoshui/p/10762272.html#:~:text=settings.xml中包含类似本地仓库、远程仓库和联网使用的代理信息等配置&lt;/a&gt;。 ,settings.xml文件一般存在于Maven的安装目录的conf子目录下面，或者是用户目录的.m2子目录下面。 其实相对于多用户的PC机而言，在Maven安装目录的conf子目录下面的settings.xml才是真正的全局的配置。)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] &lt;a class=&#34;link&#34; href=&#34;https://www.yisu.com/zixun/131089.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;如何在linux中编译写和运行java代码 - 编程语言 - 亿速云&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[ ] 爆炸了，1C1G已重启三遍，不过应该算是成功了&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 换一个思路，配置不够本地构建&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] [VirtualBox]VirtualBox中安装CentOS-8 - 简书 ](&lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/4aee7e81db11&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.jianshu.com/p/4aee7e81db11&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 配置ssh，zsh，建立快照&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 文件转移&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 踩坑https://blog.csdn.net/newbie_R/article/details/115920761 要改nacos里ruoyi-system-dev.yml里的sql账密&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[x] 本地搭建成功&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;学习参考&#34;&gt;学习参考&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://doc.ruoyi.vip/ruoyi-cloud/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://doc.ruoyi.vip/ruoyi-cloud/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;bing等搜索引擎&lt;/p&gt;
+&lt;h2 id=&#34;学习任务&#34;&gt;学习任务&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] ruoyi-cloud文档&lt;/li&gt;
+&lt;li&gt;[x] 搭建起centos环境&lt;/li&gt;
+&lt;li&gt;[x] 搭建一套nacos微服务中心&lt;/li&gt;
+&lt;li&gt;[ ] 再读文档&lt;/li&gt;
+&lt;li&gt;[ ] 尝试框架更多的功能&lt;/li&gt;
+&lt;li&gt;[ ] 读源码，学java&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

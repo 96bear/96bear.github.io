@@ -1,7 +1,7 @@
 +++
 title = 'Hugo站点起步'
 date = 2023-11-25T17:07:27+08:00
-draft = true
+draft = false
 +++
 
 # 发布博客流程
